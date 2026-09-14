@@ -1,0 +1,485 @@
+{% extends "base.html" %}
+
+{% block title %}
+Проверка источника
+{% endblock %}
+
+{% block content %}
+
+<style>
+
+    .card {
+        background: #fff;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        padding: 20px;
+        margin-bottom: 25px;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns:
+            repeat(
+                2,
+                minmax(0, 1fr)
+            );
+        gap: 15px;
+    }
+
+    .form-group {
+        margin-bottom: 16px;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: 600;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .people {
+        min-height: 100px;
+    }
+
+    .full-text {
+        min-height: 500px;
+    }
+
+    .metadata {
+        min-height: 140px;
+        font-family: monospace;
+    }
+
+    .error {
+        background: #fde2e2;
+        border: 1px solid #e9a1a1;
+        padding: 14px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        white-space: pre-wrap;
+    }
+
+    .save-panel {
+        position: sticky;
+        bottom: 0;
+        z-index: 20;
+
+        background: #fff;
+
+        border: 1px solid #ddd;
+        border-radius: 10px;
+
+        padding: 14px;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    @media (
+        max-width: 800px
+    ) {
+        .grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+</style>
+
+
+<p>
+    <a href="/sources">
+        ← Назад к источникам
+    </a>
+</p>
+
+
+<h1>
+    Проверка источника
+</h1>
+
+
+{% if error %}
+
+<div class="error">
+    {{ error }}
+</div>
+
+{% endif %}
+
+
+<form
+    method="post"
+    action="/sources/import/commit"
+>
+
+    <div class="card">
+
+        <div class="grid">
+
+            <div class="form-group">
+
+                <label>
+                    Тип документа
+                </label>
+
+                <select
+                    name="document_type"
+                    required
+                >
+
+                    {% for item in document_types %}
+
+                    <option
+                        value="{{ item.value }}"
+                        {% if source.document_type == item.value %}
+                        selected
+                        {% endif %}
+                    >
+                        {{ item.value }}
+                    </option>
+
+                    {% endfor %}
+
+                </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Primary taxon
+                </label>
+
+                <input
+                    type="text"
+                    name="primary_taxon"
+                    value="{{ source.primary_taxon }}"
+                    list="taxon-suggestions"
+                    required
+                >
+
+            </div>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                Название
+            </label>
+
+            <input
+                type="text"
+                name="title"
+                value="{{ source.title }}"
+                required
+            >
+
+        </div>
+
+
+        <div class="grid">
+
+            <div class="form-group">
+
+                <label>
+                    Авторы — по одному на строку
+                </label>
+
+                <textarea
+                    class="people"
+                    name="authors"
+                >{{ source.authors | join('\n') }}</textarea>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Редакторы — по одному на строку
+                </label>
+
+                <textarea
+                    class="people"
+                    name="editors"
+                >{{ source.editors | join('\n') }}</textarea>
+
+            </div>
+
+        </div>
+
+
+        <div class="grid">
+
+            <div class="form-group">
+
+                <label>
+                    Год
+                </label>
+
+                <input
+                    type="number"
+                    name="year"
+                    value="{{ source.year or '' }}"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Язык
+                </label>
+
+                <select
+                    name="language"
+                    required
+                >
+
+                    {% for code, label in languages.items() %}
+
+                    <option
+                        value="{{ code }}"
+                        {% if source.language == code %}
+                        selected
+                        {% endif %}
+                    >
+                        {{ label }}
+                    </option>
+
+                    {% endfor %}
+
+                </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Тип контейнера
+                </label>
+
+                <select
+                    name="container_type"
+                >
+
+                    <option value="">
+                        —
+                    </option>
+
+                    {% for item in container_types %}
+
+                    <option
+                        value="{{ item.value }}"
+                        {% if source.container_type == item.value %}
+                        selected
+                        {% endif %}
+                    >
+                        {{ item.value }}
+                    </option>
+
+                    {% endfor %}
+
+                </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Название контейнера
+                </label>
+
+                <input
+                    type="text"
+                    name="container_title"
+                    value="{{ source.container_title or '' }}"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Издатель
+                </label>
+
+                <input
+                    type="text"
+                    name="publisher"
+                    value="{{ source.publisher or '' }}"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Номер главы
+                </label>
+
+                <input
+                    type="text"
+                    name="chapter_number"
+                    value="{{ source.chapter_number or '' }}"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Страница от
+                </label>
+
+                <input
+                    type="number"
+                    name="page_start"
+                    min="1"
+                    value="{{ source.page_start or '' }}"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Страница до
+                </label>
+
+                <input
+                    type="number"
+                    name="page_end"
+                    min="1"
+                    value="{{ source.page_end or '' }}"
+                >
+
+            </div>
+
+        </div>
+
+
+        <div class="grid">
+
+            <div class="form-group">
+
+                <label>
+                    DOI
+                </label>
+
+                <input
+                    type="text"
+                    name="doi"
+                    value="{{ source.doi or '' }}"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    ISBN
+                </label>
+
+                <input
+                    type="text"
+                    name="isbn"
+                    value="{{ source.isbn or '' }}"
+                >
+
+            </div>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                URL
+            </label>
+
+            <input
+                type="text"
+                name="url"
+                value="{{ source.url or '' }}"
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                Metadata JSON
+            </label>
+
+            <textarea
+                class="metadata"
+                name="metadata"
+            >{{ source.metadata | tojson(indent=2) }}</textarea>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                Полный текст
+            </label>
+
+            <textarea
+                class="full-text"
+                name="full_text"
+                required
+            >{{ source.full_text }}</textarea>
+
+        </div>
+
+    </div>
+
+
+    <div class="save-panel">
+
+        <span>
+            Проверь данные перед сохранением.
+        </span>
+
+        <button type="submit">
+            Добавить источник
+        </button>
+
+    </div>
+
+</form>
+
+
+<datalist id="taxon-suggestions">
+
+    {% for taxon in taxon_suggestions %}
+
+    <option value="{{ taxon }}"></option>
+
+    {% endfor %}
+
+</datalist>
+
+
+{% endblock %}

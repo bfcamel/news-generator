@@ -1,0 +1,246 @@
+{% extends "base.html" %}
+
+{% block title %}Предпросмотр тезиса{% endblock %}
+
+{% block head %}
+<style>
+  .at-preview-wrap {
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+
+  .at-card {
+    background: #fff;
+    border: 1px solid rgba(18, 54, 64, .12);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 18px;
+    box-shadow: 0 8px 24px rgba(18, 54, 64, .06);
+  }
+
+  .at-thesis {
+    font-size: 21px;
+    line-height: 1.45;
+    font-weight: 700;
+  }
+
+  .at-meta {
+    color: #607177;
+    font-size: 13px;
+  }
+
+  .at-unit {
+    display: grid;
+    grid-template-columns: 38px minmax(0, 1fr);
+    gap: 12px;
+    padding: 16px 0;
+    border-top: 1px solid #e3ebed;
+  }
+
+  .at-unit:first-child {
+    border-top: 0;
+  }
+
+  .at-unit input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin-top: 3px;
+  }
+
+  .at-unit-text {
+    white-space: pre-wrap;
+    line-height: 1.5;
+    margin: 8px 0;
+  }
+
+  .at-source {
+    font-weight: 700;
+  }
+
+  .at-score {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 999px;
+    background: #eef4f5;
+    color: #123640;
+    font-size: 12px;
+  }
+
+  .at-warning {
+    padding: 12px 14px;
+    border: 1px solid #e4cf84;
+    background: #fff9df;
+    border-radius: 12px;
+    margin-bottom: 18px;
+  }
+
+  .at-error {
+    padding: 12px 14px;
+    border: 1px solid #efb5b5;
+    background: #fff3f3;
+    border-radius: 12px;
+    margin-bottom: 18px;
+  }
+
+  .at-actions {
+    position: sticky;
+    bottom: 12px;
+    z-index: 5;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 14px;
+    border: 1px solid #d6e2e4;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, .96);
+    box-shadow: 0 8px 30px rgba(18, 54, 64, .12);
+  }
+
+  .at-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    border-radius: 10px;
+    padding: 10px 15px;
+    background: #123640;
+    color: #fff;
+    text-decoration: none;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  .at-button.secondary {
+    background: #edf3f4;
+    color: #123640;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="at-preview-wrap">
+  <div style="margin-bottom:18px;">
+    <a href="/atomic-theses">← К списку тезисов</a>
+  </div>
+
+  <h1>Проверка связей перед добавлением</h1>
+
+  {% if error %}
+    <div class="at-error">{{ error }}</div>
+  {% endif %}
+
+  {% if exact_existing %}
+    <div class="at-warning">
+      <strong>Точно такой текст тезиса уже существует.</strong><br>
+      Новый тезис создан не будет. Выбранные ниже Semantic Units будут добавлены как новые подтверждения к
+      <a href="/atomic-theses/{{ exact_existing.id }}">{{ exact_existing.id }}</a>.
+    </div>
+  {% endif %}
+
+  <section class="at-card">
+    <div class="at-thesis">{{ text }}</div>
+    <div class="at-meta" style="margin-top:10px;">
+      Scope: {{ taxon_scope_labels[taxon_scope] }}
+      {% if taxa %}
+        · Taxa: {{ taxa | join(", ") }}
+      {% endif %}
+    </div>
+  </section>
+
+  <form method="post" action="/atomic-theses/commit">
+    <input type="hidden" name="text" value="{{ text }}">
+    <input type="hidden" name="taxa" value="{{ taxa_string }}">
+    <input type="hidden" name="taxon_scope" value="{{ taxon_scope.value }}">
+
+    <section class="at-card">
+      <h2 style="margin-top:0;">Кандидаты Semantic Unit: {{ candidates | length }}</h2>
+      <p class="at-meta">
+        Все включены по умолчанию. Снимите галочку с любого блока, который не подтверждает тезис.
+        Score нужен только для ранжирования.
+      </p>
+
+      {% if not candidates %}
+        <p>Подходящие Semantic Units не найдены.</p>
+      {% endif %}
+
+      {% for candidate in candidates %}
+        <label class="at-unit">
+          <div>
+            <input
+              type="checkbox"
+              name="semantic_unit_ids"
+              value="{{ candidate.unit.id }}"
+              checked
+            >
+          </div>
+
+          <div>
+            <div style="display:flex; flex-wrap:wrap; gap:8px; align-items:center;">
+              <span class="at-score">
+                similarity {{ "%.4f" | format(candidate.score) }}
+              </span>
+
+              <span class="at-meta">
+                {{ candidate.unit.id }}
+              </span>
+            </div>
+
+            {% if candidate.source %}
+              <div class="at-source" style="margin-top:8px;">
+                {{ candidate.source.title }}
+                {% if candidate.source.year %}
+                  ({{ candidate.source.year }})
+                {% endif %}
+              </div>
+            {% else %}
+              <div class="at-source" style="margin-top:8px;">
+                {{ candidate.unit.source_document_id }}
+              </div>
+            {% endif %}
+
+            <div class="at-meta" style="margin-top:4px;">
+              {% if candidate.unit.section_title %}
+                {{ candidate.unit.section_title }}
+              {% endif %}
+
+              {% if candidate.unit.page_start is not none %}
+                · стр. {{ candidate.unit.page_start }}
+                {% if candidate.unit.page_end is not none and candidate.unit.page_end != candidate.unit.page_start %}
+                  –{{ candidate.unit.page_end }}
+                {% endif %}
+              {% endif %}
+
+              {% if candidate.unit.taxa %}
+                · {{ candidate.unit.taxa | join(", ") }}
+              {% endif %}
+            </div>
+
+            <div class="at-unit-text">
+              {{ candidate.unit.text }}
+            </div>
+          </div>
+        </label>
+      {% endfor %}
+    </section>
+
+    <div class="at-actions">
+      <button
+        class="at-button"
+        type="submit"
+        {% if not candidates %}disabled{% endif %}
+      >
+        {% if exact_existing %}
+          Добавить выбранные подтверждения
+        {% else %}
+          Создать тезис с выбранными связями
+        {% endif %}
+      </button>
+
+      <a class="at-button secondary" href="/atomic-theses">
+        Отмена
+      </a>
+    </div>
+  </form>
+</div>
+{% endblock %}

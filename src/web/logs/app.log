@@ -1,0 +1,361 @@
+2026-09-14 14:49:04,120 | INFO | news_generator.web | Starting News Generator Admin
+2026-09-14 14:49:04,133 | INFO | news_generator.web | Elasticsearch indices are ready
+2026-09-14 14:52:07,812 | INFO | news_generator.web | Stopping News Generator Admin
+2026-09-14 14:52:07,813 | INFO | news_generator.web | Elasticsearch connection closed
+2026-09-14 14:52:08,103 | INFO | news_generator.web | Starting News Generator Admin
+2026-09-14 14:52:08,128 | INFO | news_generator.web | Elasticsearch indices are ready
+2026-09-14 14:52:32,187 | INFO | news_generator.web | Stopping News Generator Admin
+2026-09-14 14:52:32,191 | INFO | news_generator.web | Elasticsearch connection closed
+2026-09-14 14:52:32,533 | INFO | news_generator.web | Starting News Generator Admin
+2026-09-14 14:52:32,546 | INFO | news_generator.web | Elasticsearch indices are ready
+2026-09-14 14:52:52,465 | INFO | news_generator.web | Stopping News Generator Admin
+2026-09-14 14:52:52,465 | INFO | news_generator.web | Elasticsearch connection closed
+2026-09-14 14:52:52,814 | INFO | news_generator.web | Starting News Generator Admin
+2026-09-14 14:52:52,835 | INFO | news_generator.web | Elasticsearch indices are ready
+2026-09-14 14:53:01,642 | INFO | news_generator.web | Stopping News Generator Admin
+2026-09-14 14:53:01,642 | INFO | news_generator.web | Elasticsearch connection closed
+2026-09-14 14:53:01,969 | INFO | news_generator.web | Starting News Generator Admin
+2026-09-14 14:53:01,982 | INFO | news_generator.web | Elasticsearch indices are ready
+2026-09-14 14:56:20,500 | INFO | news_generator.web | Source JSON loaded for preview: title='The Domestication of Camel in the Literary, Archaeological and Petroglyph Records' primary_taxon='Camelus'
+2026-09-14 14:56:53,479 | INFO | news_generator.web | Source document imported from JSON: id=doc_1d5049ad5cf54a9a8dcded48001fed29 title='The Domestication of Camel in the Literary, Archaeological and Petroglyph Records' primary_taxon='Camelus'
+2026-09-14 15:00:27,261 | INFO | news_generator.web | SemanticUnit JSON loaded: source_document_id=doc_1d5049ad5cf54a9a8dcded48001fed29 units=104
+2026-09-14 15:01:18,380 | INFO | news_generator.web | Starting SemanticUnit import: source_document_id=doc_1d5049ad5cf54a9a8dcded48001fed29 received=104
+2026-09-14 15:03:04,007 | INFO | news_generator.web | SemanticUnit import finished: source_document_id=doc_1d5049ad5cf54a9a8dcded48001fed29 total=104 added=104 skipped=0 errors=0
+2026-09-14 15:13:07,772 | INFO | news_generator.web | Source JSON loaded for preview: title='Dromedary (Camelus dromedarius) and Bactrian camel (Camelus bactrianus) crossbreeding husbandry practices in Turkey and Kazakhstan: An in-depth review' primary_taxon='Camelus'
+2026-09-14 15:13:25,343 | INFO | news_generator.web | Source document imported from JSON: id=doc_0db994edd68b4530ad7c9a5206540569 title='Dromedary (Camelus dromedarius) and Bactrian camel (Camelus bactrianus) crossbreeding husbandry practices in Turkey and Kazakhstan: An in-depth review' primary_taxon='Camelus'
+2026-09-14 15:17:17,057 | INFO | news_generator.web | SemanticUnit JSON loaded: source_document_id=doc_0db994edd68b4530ad7c9a5206540569 units=197
+2026-09-14 15:17:37,597 | INFO | news_generator.web | Starting SemanticUnit import: source_document_id=doc_0db994edd68b4530ad7c9a5206540569 received=197
+2026-09-14 15:20:57,637 | INFO | news_generator.web | SemanticUnit import finished: source_document_id=doc_0db994edd68b4530ad7c9a5206540569 total=197 added=197 skipped=0 errors=0
+2026-09-14 15:33:02,514 | INFO | news_generator.web | Stopping News Generator Admin
+2026-09-14 15:33:02,516 | INFO | news_generator.web | Elasticsearch connection closed
+2026-09-14 16:21:53,310 | INFO | news_generator.web | Starting News Generator Admin
+2026-09-14 16:21:53,337 | INFO | news_generator.web | Elasticsearch indices are ready
+2026-09-14 16:27:19,238 | INFO | news_generator.web | Source JSON loaded for preview: title='Reproduction in dromedary camels: an update' primary_taxon='Camelus dromedarius'
+2026-09-14 16:27:32,540 | INFO | news_generator.web | Source document imported from JSON: id=doc_cc02ff59d58546eb912254c32fd43164 title='Reproduction in dromedary camels: an update' primary_taxon='Camelus dromedarius'
+2026-09-14 16:30:57,751 | INFO | news_generator.web | Starting News Generator Admin
+2026-09-14 16:30:57,778 | INFO | news_generator.web | Elasticsearch indices are ready
+2026-09-14 16:31:10,060 | INFO | news_generator.web | SemanticUnit JSON loaded: source_document_id=doc_cc02ff59d58546eb912254c32fd43164 units=186
+2026-09-14 16:31:49,107 | INFO | news_generator.web | Starting SemanticUnit import: source_document_id=doc_cc02ff59d58546eb912254c32fd43164 received=186
+2026-09-14 16:36:13,658 | INFO | news_generator.web | SemanticUnit import finished: source_document_id=doc_cc02ff59d58546eb912254c32fd43164 total=186 added=186 skipped=0 errors=0 embeddings_created=186 embeddings_failed=0
+2026-09-14 16:36:24,077 | INFO | news_generator.web | Stopping News Generator Admin
+2026-09-14 16:36:24,087 | INFO | news_generator.web | Yandex embedding client closed
+2026-09-14 16:36:24,097 | INFO | news_generator.web | Elasticsearch connection closed
+2026-09-14 16:36:24,491 | INFO | news_generator.web | Starting News Generator Admin
+2026-09-14 16:36:24,506 | INFO | news_generator.web | Elasticsearch indices are ready
+2026-09-14 16:39:59,532 | INFO | news_generator.web | Source JSON loaded for preview: title='Genome sequences of wild and domestic bactrian camels' primary_taxon='Camelus'
+2026-09-14 16:40:18,347 | INFO | news_generator.web | Source document imported from JSON: id=doc_662fb847310844248e4a24ce38eced91 title='Genome sequences of wild and domestic bactrian camels' primary_taxon='Camelus'
+2026-09-14 16:42:26,345 | INFO | news_generator.web | SemanticUnit JSON loaded: source_document_id=doc_662fb847310844248e4a24ce38eced91 units=140
+2026-09-14 16:42:49,938 | INFO | news_generator.web | Starting SemanticUnit import: source_document_id=doc_662fb847310844248e4a24ce38eced91 source_title='Genome sequences of wild and domestic bactrian camels' received=140 selected=140 skipped=0
+2026-09-14 16:42:49,939 | INFO | news_generator.web | [SemanticUnit save] Starting: 140 selected units
+2026-09-14 16:42:50,308 | INFO | news_generator.web | [SemanticUnit save] 1/140 (0.7%) | 2.71 items/s | elapsed=00:00 | eta=00:51 | saved=1 errors=0 position=0 id=unit_39b8975f480741399d9b913093cd6d41
+2026-09-14 16:42:51,330 | INFO | news_generator.web | [SemanticUnit save] 2/140 (1.4%) | 1.44 items/s | elapsed=00:01 | eta=01:36 | saved=2 errors=0 position=1 id=unit_7f57932e386d43488c5577c0ca4bb38e
+2026-09-14 16:42:52,346 | INFO | news_generator.web | [SemanticUnit save] 3/140 (2.1%) | 1.25 items/s | elapsed=00:02 | eta=01:50 | saved=3 errors=0 position=2 id=unit_5ed0067623d04e678cf9c01a57af46f1
+2026-09-14 16:42:53,360 | INFO | news_generator.web | [SemanticUnit save] 4/140 (2.9%) | 1.17 items/s | elapsed=00:03 | eta=01:56 | saved=4 errors=0 position=3 id=unit_af2277f98d744e20bec15068d803dace
+2026-09-14 16:42:54,380 | INFO | news_generator.web | [SemanticUnit save] 5/140 (3.6%) | 1.13 items/s | elapsed=00:04 | eta=02:00 | saved=5 errors=0 position=4 id=unit_ff5820715f70427bb101ddd3cf28668f
+2026-09-14 16:42:55,398 | INFO | news_generator.web | [SemanticUnit save] 6/140 (4.3%) | 1.10 items/s | elapsed=00:05 | eta=02:02 | saved=6 errors=0 position=5 id=unit_ac9afa29d96c4e9d9cc69bb2519d11eb
+2026-09-14 16:42:56,413 | INFO | news_generator.web | [SemanticUnit save] 7/140 (5.0%) | 1.08 items/s | elapsed=00:06 | eta=02:03 | saved=7 errors=0 position=6 id=unit_59087dbaeb5a423183bbc70614eee844
+2026-09-14 16:42:57,433 | INFO | news_generator.web | [SemanticUnit save] 8/140 (5.7%) | 1.07 items/s | elapsed=00:07 | eta=02:04 | saved=8 errors=0 position=7 id=unit_a9de754bffee476eb0e712dd61606d59
+2026-09-14 16:42:58,453 | INFO | news_generator.web | [SemanticUnit save] 9/140 (6.4%) | 1.06 items/s | elapsed=00:09 | eta=02:04 | saved=9 errors=0 position=8 id=unit_cdfbfd5859c844e2ac0711d9929bdc31
+2026-09-14 16:42:59,470 | INFO | news_generator.web | [SemanticUnit save] 10/140 (7.1%) | 1.05 items/s | elapsed=00:10 | eta=02:04 | saved=10 errors=0 position=9 id=unit_e9b497d6e8c34db78a6f7c58aeb9d33a
+2026-09-14 16:43:00,485 | INFO | news_generator.web | [SemanticUnit save] 11/140 (7.9%) | 1.04 items/s | elapsed=00:11 | eta=02:04 | saved=11 errors=0 position=10 id=unit_4c8d37a73e0f4a0a96058da028961c2d
+2026-09-14 16:43:01,500 | INFO | news_generator.web | [SemanticUnit save] 12/140 (8.6%) | 1.04 items/s | elapsed=00:12 | eta=02:03 | saved=12 errors=0 position=11 id=unit_ad6097fe31244a5c8750af72e327d43f
+2026-09-14 16:43:02,511 | INFO | news_generator.web | [SemanticUnit save] 13/140 (9.3%) | 1.03 items/s | elapsed=00:13 | eta=02:03 | saved=13 errors=0 position=12 id=unit_6e2940c8b9af456ab6011fe9f967a9d0
+2026-09-14 16:43:03,531 | INFO | news_generator.web | [SemanticUnit save] 14/140 (10.0%) | 1.03 items/s | elapsed=00:14 | eta=02:02 | saved=14 errors=0 position=13 id=unit_f99ae76fc6424c7f894c7cd32599b8c5
+2026-09-14 16:43:04,548 | INFO | news_generator.web | [SemanticUnit save] 15/140 (10.7%) | 1.03 items/s | elapsed=00:15 | eta=02:02 | saved=15 errors=0 position=14 id=unit_817fc0d1013f41d594b10df576fb7f12
+2026-09-14 16:43:05,566 | INFO | news_generator.web | [SemanticUnit save] 16/140 (11.4%) | 1.02 items/s | elapsed=00:16 | eta=02:01 | saved=16 errors=0 position=15 id=unit_f232ec078447443c8ed281e80553cfbc
+2026-09-14 16:43:06,585 | INFO | news_generator.web | [SemanticUnit save] 17/140 (12.1%) | 1.02 items/s | elapsed=00:17 | eta=02:00 | saved=17 errors=0 position=16 id=unit_3224e61a780d4b608d4e701d6667a06e
+2026-09-14 16:43:07,596 | INFO | news_generator.web | [SemanticUnit save] 18/140 (12.9%) | 1.02 items/s | elapsed=00:18 | eta=02:00 | saved=18 errors=0 position=17 id=unit_5968047477a94596b84586fd0d988fb8
+2026-09-14 16:43:08,613 | INFO | news_generator.web | [SemanticUnit save] 19/140 (13.6%) | 1.02 items/s | elapsed=00:19 | eta=01:59 | saved=19 errors=0 position=18 id=unit_0735fc15ce674c4f9aac2d3565c3f352
+2026-09-14 16:43:09,631 | INFO | news_generator.web | [SemanticUnit save] 20/140 (14.3%) | 1.02 items/s | elapsed=00:20 | eta=01:58 | saved=20 errors=0 position=19 id=unit_0a1b4f0ed58340dba10177980b728ac7
+2026-09-14 16:43:10,645 | INFO | news_generator.web | [SemanticUnit save] 21/140 (15.0%) | 1.01 items/s | elapsed=00:21 | eta=01:57 | saved=21 errors=0 position=20 id=unit_3f1c4d0a012c48f88160d67797bfcc9f
+2026-09-14 16:43:11,661 | INFO | news_generator.web | [SemanticUnit save] 22/140 (15.7%) | 1.01 items/s | elapsed=00:22 | eta=01:57 | saved=22 errors=0 position=21 id=unit_62d21be360c7454d8ceecac640bf8fc8
+2026-09-14 16:43:12,674 | INFO | news_generator.web | [SemanticUnit save] 23/140 (16.4%) | 1.01 items/s | elapsed=00:23 | eta=01:56 | saved=23 errors=0 position=22 id=unit_e46dc0435dca450ebc18c1ec114fffb3
+2026-09-14 16:43:13,694 | INFO | news_generator.web | [SemanticUnit save] 24/140 (17.1%) | 1.01 items/s | elapsed=00:24 | eta=01:55 | saved=24 errors=0 position=23 id=unit_1f5001d012eb4d8ea422cfe52ddbaa13
+2026-09-14 16:43:14,714 | INFO | news_generator.web | [SemanticUnit save] 25/140 (17.9%) | 1.01 items/s | elapsed=00:25 | eta=01:54 | saved=25 errors=0 position=24 id=unit_803c28504ef14cc0a883659e2e1afa01
+2026-09-14 16:43:15,726 | INFO | news_generator.web | [SemanticUnit save] 26/140 (18.6%) | 1.01 items/s | elapsed=00:26 | eta=01:53 | saved=26 errors=0 position=25 id=unit_e3c45dad70d64b18a16b46440fc55266
+2026-09-14 16:43:16,742 | INFO | news_generator.web | [SemanticUnit save] 27/140 (19.3%) | 1.01 items/s | elapsed=00:27 | eta=01:52 | saved=27 errors=0 position=26 id=unit_3b584233c2a3460e90cfa8b937a2131e
+2026-09-14 16:43:17,759 | INFO | news_generator.web | [SemanticUnit save] 28/140 (20.0%) | 1.01 items/s | elapsed=00:28 | eta=01:51 | saved=28 errors=0 position=27 id=unit_4c6524ab92f04896b496dc9ff76b23f6
+2026-09-14 16:43:18,772 | INFO | news_generator.web | [SemanticUnit save] 29/140 (20.7%) | 1.01 items/s | elapsed=00:29 | eta=01:50 | saved=29 errors=0 position=28 id=unit_cfd324fece3a4e9a9726d81904f62d7b
+2026-09-14 16:43:19,792 | INFO | news_generator.web | [SemanticUnit save] 30/140 (21.4%) | 1.00 items/s | elapsed=00:30 | eta=01:49 | saved=30 errors=0 position=29 id=unit_eb701ded1611416a8948f25d6ea86a57
+2026-09-14 16:43:20,811 | INFO | news_generator.web | [SemanticUnit save] 31/140 (22.1%) | 1.00 items/s | elapsed=00:31 | eta=01:49 | saved=31 errors=0 position=30 id=unit_70bc63043e9b4a8cbc5eaeb7a8cba234
+2026-09-14 16:43:21,823 | INFO | news_generator.web | [SemanticUnit save] 32/140 (22.9%) | 1.00 items/s | elapsed=00:32 | eta=01:48 | saved=32 errors=0 position=31 id=unit_e61de4a486bf4efd947a5b9395e417d3
+2026-09-14 16:43:22,843 | INFO | news_generator.web | [SemanticUnit save] 33/140 (23.6%) | 1.00 items/s | elapsed=00:33 | eta=01:47 | saved=33 errors=0 position=32 id=unit_f2abdb2387a34e4bb5e7c753a5bfe03f
+2026-09-14 16:43:23,855 | INFO | news_generator.web | [SemanticUnit save] 34/140 (24.3%) | 1.00 items/s | elapsed=00:34 | eta=01:46 | saved=34 errors=0 position=33 id=unit_f7371a4d1bc842578597b79ad0187a2f
+2026-09-14 16:43:24,871 | INFO | news_generator.web | [SemanticUnit save] 35/140 (25.0%) | 1.00 items/s | elapsed=00:35 | eta=01:45 | saved=35 errors=0 position=34 id=unit_9df6670978924799bf048d0c93ef9d04
+2026-09-14 16:43:25,888 | INFO | news_generator.web | [SemanticUnit save] 36/140 (25.7%) | 1.00 items/s | elapsed=00:36 | eta=01:44 | saved=36 errors=0 position=35 id=unit_ad04201ec6b94260bd1fe9348553cdfb
+2026-09-14 16:43:26,900 | INFO | news_generator.web | [SemanticUnit save] 37/140 (26.4%) | 1.00 items/s | elapsed=00:37 | eta=01:43 | saved=37 errors=0 position=36 id=unit_90ccad0ea0744e14a803556da141c18c
+2026-09-14 16:43:27,924 | INFO | news_generator.web | [SemanticUnit save] 38/140 (27.1%) | 1.00 items/s | elapsed=00:38 | eta=01:42 | saved=38 errors=0 position=37 id=unit_d89fc7d6704348b9be6660721f893434
+2026-09-14 16:43:28,939 | INFO | news_generator.web | [SemanticUnit save] 39/140 (27.9%) | 1.00 items/s | elapsed=00:39 | eta=01:41 | saved=39 errors=0 position=38 id=unit_5bae8caa34a146779a516ab55787f2f4
+2026-09-14 16:43:29,954 | INFO | news_generator.web | [SemanticUnit save] 40/140 (28.6%) | 1.00 items/s | elapsed=00:40 | eta=01:40 | saved=40 errors=0 position=39 id=unit_41eae60789d14e3183ab9c69109c1b80
+2026-09-14 16:43:30,974 | INFO | news_generator.web | [SemanticUnit save] 41/140 (29.3%) | 1.00 items/s | elapsed=00:41 | eta=01:39 | saved=41 errors=0 position=40 id=unit_2f29aa09a359403d8c2b6cd74114f900
+2026-09-14 16:43:31,988 | INFO | news_generator.web | [SemanticUnit save] 42/140 (30.0%) | 1.00 items/s | elapsed=00:42 | eta=01:38 | saved=42 errors=0 position=41 id=unit_5839d648c25a43938a39281cde00e633
+2026-09-14 16:43:33,005 | INFO | news_generator.web | [SemanticUnit save] 43/140 (30.7%) | 1.00 items/s | elapsed=00:43 | eta=01:37 | saved=43 errors=0 position=42 id=unit_69cb7bc1c2c74a15bc1666141d044dec
+2026-09-14 16:43:34,019 | INFO | news_generator.web | [SemanticUnit save] 44/140 (31.4%) | 1.00 items/s | elapsed=00:44 | eta=01:36 | saved=44 errors=0 position=43 id=unit_18738d8246634061af0dac4525de0e32
+2026-09-14 16:43:35,037 | INFO | news_generator.web | [SemanticUnit save] 45/140 (32.1%) | 1.00 items/s | elapsed=00:45 | eta=01:35 | saved=45 errors=0 position=44 id=unit_ae1f3e2367ad4de09fc562d0a12059fa
+2026-09-14 16:43:36,052 | INFO | news_generator.web | [SemanticUnit save] 46/140 (32.9%) | 1.00 items/s | elapsed=00:46 | eta=01:34 | saved=46 errors=0 position=45 id=unit_8ef0797230ae46dfa7b82494d3c7e9be
+2026-09-14 16:43:37,070 | INFO | news_generator.web | [SemanticUnit save] 47/140 (33.6%) | 1.00 items/s | elapsed=00:47 | eta=01:33 | saved=47 errors=0 position=46 id=unit_a6459fe0106648399cd315fbdbba8cbc
+2026-09-14 16:43:38,084 | INFO | news_generator.web | [SemanticUnit save] 48/140 (34.3%) | 1.00 items/s | elapsed=00:48 | eta=01:32 | saved=48 errors=0 position=47 id=unit_8e6095590ae7408eb2b2a34133ec3525
+2026-09-14 16:43:39,104 | INFO | news_generator.web | [SemanticUnit save] 49/140 (35.0%) | 1.00 items/s | elapsed=00:49 | eta=01:31 | saved=49 errors=0 position=48 id=unit_6d29faa761264c6e9051071634d606e3
+2026-09-14 16:43:40,114 | INFO | news_generator.web | [SemanticUnit save] 50/140 (35.7%) | 1.00 items/s | elapsed=00:50 | eta=01:30 | saved=50 errors=0 position=49 id=unit_325641057f004684a0d8206ded37efa3
+2026-09-14 16:43:41,131 | INFO | news_generator.web | [SemanticUnit save] 51/140 (36.4%) | 1.00 items/s | elapsed=00:51 | eta=01:29 | saved=51 errors=0 position=50 id=unit_8c676fc82eca49dfa74d4a523c6bf8ee
+2026-09-14 16:43:42,150 | INFO | news_generator.web | [SemanticUnit save] 52/140 (37.1%) | 1.00 items/s | elapsed=00:52 | eta=01:28 | saved=52 errors=0 position=51 id=unit_a1760d4e7bad48889b3da5ea3eed5d13
+2026-09-14 16:43:43,164 | INFO | news_generator.web | [SemanticUnit save] 53/140 (37.9%) | 1.00 items/s | elapsed=00:53 | eta=01:27 | saved=53 errors=0 position=52 id=unit_7e438b820ef84d5594be4f50662d6418
+2026-09-14 16:43:44,183 | INFO | news_generator.web | [SemanticUnit save] 54/140 (38.6%) | 1.00 items/s | elapsed=00:54 | eta=01:26 | saved=54 errors=0 position=53 id=unit_8102d3b9f42647879cd9dc29f67d38c7
+2026-09-14 16:43:45,204 | INFO | news_generator.web | [SemanticUnit save] 55/140 (39.3%) | 1.00 items/s | elapsed=00:55 | eta=01:25 | saved=55 errors=0 position=54 id=unit_e874a9e6e72b438c90274c5ba28f652d
+2026-09-14 16:43:46,220 | INFO | news_generator.web | [SemanticUnit save] 56/140 (40.0%) | 0.99 items/s | elapsed=00:56 | eta=01:24 | saved=56 errors=0 position=55 id=unit_5f2d2d9eb3104d089f7a6bdffa47c354
+2026-09-14 16:43:47,236 | INFO | news_generator.web | [SemanticUnit save] 57/140 (40.7%) | 0.99 items/s | elapsed=00:57 | eta=01:23 | saved=57 errors=0 position=56 id=unit_09af08b570724ee38e556c39056c19f3
+2026-09-14 16:43:48,253 | INFO | news_generator.web | [SemanticUnit save] 58/140 (41.4%) | 0.99 items/s | elapsed=00:58 | eta=01:22 | saved=58 errors=0 position=57 id=unit_381aa3e323f342f5baf05940cf284010
+2026-09-14 16:43:49,272 | INFO | news_generator.web | [SemanticUnit save] 59/140 (42.1%) | 0.99 items/s | elapsed=00:59 | eta=01:21 | saved=59 errors=0 position=58 id=unit_f8021961f170477588a37ca378d39b02
+2026-09-14 16:43:50,289 | INFO | news_generator.web | [SemanticUnit save] 60/140 (42.9%) | 0.99 items/s | elapsed=01:00 | eta=01:20 | saved=60 errors=0 position=59 id=unit_1275f551b3f74f54a18a393334b97c5b
+2026-09-14 16:43:51,289 | INFO | news_generator.web | [SemanticUnit save] 61/140 (43.6%) | 0.99 items/s | elapsed=01:01 | eta=01:19 | saved=61 errors=0 position=60 id=unit_f6d8de34dddc4e72ab109ca4ada69f74
+2026-09-14 16:43:52,306 | INFO | news_generator.web | [SemanticUnit save] 62/140 (44.3%) | 0.99 items/s | elapsed=01:02 | eta=01:18 | saved=62 errors=0 position=61 id=unit_8da4cb8057c046c680f72160a6d13c18
+2026-09-14 16:43:53,322 | INFO | news_generator.web | [SemanticUnit save] 63/140 (45.0%) | 0.99 items/s | elapsed=01:03 | eta=01:17 | saved=63 errors=0 position=62 id=unit_07cd63b1aadf43fbbb46f254aaa75ea2
+2026-09-14 16:43:54,332 | INFO | news_generator.web | [SemanticUnit save] 64/140 (45.7%) | 0.99 items/s | elapsed=01:04 | eta=01:16 | saved=64 errors=0 position=63 id=unit_5593bd096f58451f83ac92614f2eedc6
+2026-09-14 16:43:55,350 | INFO | news_generator.web | [SemanticUnit save] 65/140 (46.4%) | 0.99 items/s | elapsed=01:05 | eta=01:15 | saved=65 errors=0 position=64 id=unit_a962745012024844a72b87f6e802cbd0
+2026-09-14 16:43:56,371 | INFO | news_generator.web | [SemanticUnit save] 66/140 (47.1%) | 0.99 items/s | elapsed=01:06 | eta=01:14 | saved=66 errors=0 position=65 id=unit_71fbfc48faed42a08b28c93da0ceeb7d
+2026-09-14 16:43:57,383 | INFO | news_generator.web | [SemanticUnit save] 67/140 (47.9%) | 0.99 items/s | elapsed=01:07 | eta=01:13 | saved=67 errors=0 position=66 id=unit_4438b29b444b42b1b433cf8c8e475326
+2026-09-14 16:43:58,403 | INFO | news_generator.web | [SemanticUnit save] 68/140 (48.6%) | 0.99 items/s | elapsed=01:08 | eta=01:12 | saved=68 errors=0 position=67 id=unit_a92e4f5a2e5c49079f86dbf6424cf2f0
+2026-09-14 16:43:59,415 | INFO | news_generator.web | [SemanticUnit save] 69/140 (49.3%) | 0.99 items/s | elapsed=01:09 | eta=01:11 | saved=69 errors=0 position=68 id=unit_c1e4645467d74445883abc502010c889
+2026-09-14 16:44:00,432 | INFO | news_generator.web | [SemanticUnit save] 70/140 (50.0%) | 0.99 items/s | elapsed=01:10 | eta=01:10 | saved=70 errors=0 position=69 id=unit_e479e57f25c94e1b8fab64aa77ae2790
+2026-09-14 16:44:01,449 | INFO | news_generator.web | [SemanticUnit save] 71/140 (50.7%) | 0.99 items/s | elapsed=01:12 | eta=01:09 | saved=71 errors=0 position=70 id=unit_73d177bff92d4072b1ce1d7ec499ce1c
+2026-09-14 16:44:02,465 | INFO | news_generator.web | [SemanticUnit save] 72/140 (51.4%) | 0.99 items/s | elapsed=01:13 | eta=01:08 | saved=72 errors=0 position=71 id=unit_fedb4a9220e141b5b0a627c0562063c1
+2026-09-14 16:44:03,485 | INFO | news_generator.web | [SemanticUnit save] 73/140 (52.1%) | 0.99 items/s | elapsed=01:14 | eta=01:08 | saved=73 errors=0 position=72 id=unit_e6796ddc301b4e8d8cde294985607b89
+2026-09-14 16:44:04,498 | INFO | news_generator.web | [SemanticUnit save] 74/140 (52.9%) | 0.99 items/s | elapsed=01:15 | eta=01:07 | saved=74 errors=0 position=73 id=unit_af3bc7de6eaf449abf559b8748349bba
+2026-09-14 16:44:05,516 | INFO | news_generator.web | [SemanticUnit save] 75/140 (53.6%) | 0.99 items/s | elapsed=01:16 | eta=01:06 | saved=75 errors=0 position=74 id=unit_081f0cec5928483e84bd7ade3d3c187c
+2026-09-14 16:44:06,535 | INFO | news_generator.web | [SemanticUnit save] 76/140 (54.3%) | 0.99 items/s | elapsed=01:17 | eta=01:05 | saved=76 errors=0 position=75 id=unit_31fd3d2bb192485582ac18e54d1d78af
+2026-09-14 16:44:07,549 | INFO | news_generator.web | [SemanticUnit save] 77/140 (55.0%) | 0.99 items/s | elapsed=01:18 | eta=01:04 | saved=77 errors=0 position=76 id=unit_e7140bfd3f7044f381aaf00fabd07ee2
+2026-09-14 16:44:08,565 | INFO | news_generator.web | [SemanticUnit save] 78/140 (55.7%) | 0.99 items/s | elapsed=01:19 | eta=01:02 | saved=78 errors=0 position=77 id=unit_ed8d76afebd24cefb7059685492ed16f
+2026-09-14 16:44:09,585 | INFO | news_generator.web | [SemanticUnit save] 79/140 (56.4%) | 0.99 items/s | elapsed=01:20 | eta=01:02 | saved=79 errors=0 position=78 id=unit_ffc058e90b3341ec9ff150c097ba4b51
+2026-09-14 16:44:10,602 | INFO | news_generator.web | [SemanticUnit save] 80/140 (57.1%) | 0.99 items/s | elapsed=01:21 | eta=01:00 | saved=80 errors=0 position=79 id=unit_5e8cd2a9e44d4bc3836edb30533ca13a
+2026-09-14 16:44:11,621 | INFO | news_generator.web | [SemanticUnit save] 81/140 (57.9%) | 0.99 items/s | elapsed=01:22 | eta=00:59 | saved=81 errors=0 position=80 id=unit_864d6605e2764bbe9e5acf59de4e6f19
+2026-09-14 16:44:12,641 | INFO | news_generator.web | [SemanticUnit save] 82/140 (58.6%) | 0.99 items/s | elapsed=01:23 | eta=00:58 | saved=82 errors=0 position=81 id=unit_8d04ced84584439087cf78fb5f3fff0a
+2026-09-14 16:44:13,661 | INFO | news_generator.web | [SemanticUnit save] 83/140 (59.3%) | 0.99 items/s | elapsed=01:24 | eta=00:57 | saved=83 errors=0 position=82 id=unit_c4fc2eac7c9642808a894c67d7c228ed
+2026-09-14 16:44:14,676 | INFO | news_generator.web | [SemanticUnit save] 84/140 (60.0%) | 0.99 items/s | elapsed=01:25 | eta=00:56 | saved=84 errors=0 position=83 id=unit_d258fb1e1b604743a46f3f45ec51b436
+2026-09-14 16:44:15,692 | INFO | news_generator.web | [SemanticUnit save] 85/140 (60.7%) | 0.99 items/s | elapsed=01:26 | eta=00:55 | saved=85 errors=0 position=84 id=unit_1f5a0f72728c49e5a2aec12b1a593781
+2026-09-14 16:44:16,708 | INFO | news_generator.web | [SemanticUnit save] 86/140 (61.4%) | 0.99 items/s | elapsed=01:27 | eta=00:54 | saved=86 errors=0 position=85 id=unit_ef8e03cec4e849d592227510759004dc
+2026-09-14 16:44:17,729 | INFO | news_generator.web | [SemanticUnit save] 87/140 (62.1%) | 0.99 items/s | elapsed=01:28 | eta=00:53 | saved=87 errors=0 position=86 id=unit_cddf9c2dfccc44a4bafcd626e5e80db6
+2026-09-14 16:44:18,741 | INFO | news_generator.web | [SemanticUnit save] 88/140 (62.9%) | 0.99 items/s | elapsed=01:29 | eta=00:52 | saved=88 errors=0 position=87 id=unit_e81d010949c2414ebf1117736626def4
+2026-09-14 16:44:19,759 | INFO | news_generator.web | [SemanticUnit save] 89/140 (63.6%) | 0.99 items/s | elapsed=01:30 | eta=00:51 | saved=89 errors=0 position=88 id=unit_bace64a89bb94deaab7d2cd2d60ef3fe
+2026-09-14 16:44:20,776 | INFO | news_generator.web | [SemanticUnit save] 90/140 (64.3%) | 0.99 items/s | elapsed=01:31 | eta=00:50 | saved=90 errors=0 position=89 id=unit_2b6c589644854f9ca43141f4b079a663
+2026-09-14 16:44:21,794 | INFO | news_generator.web | [SemanticUnit save] 91/140 (65.0%) | 0.99 items/s | elapsed=01:32 | eta=00:49 | saved=91 errors=0 position=90 id=unit_daf755573e674b3ca20311cb266f51fa
+2026-09-14 16:44:22,808 | INFO | news_generator.web | [SemanticUnit save] 92/140 (65.7%) | 0.99 items/s | elapsed=01:33 | eta=00:48 | saved=92 errors=0 position=91 id=unit_d496aa4e1e1d495293d177900b8f2c65
+2026-09-14 16:44:23,819 | INFO | news_generator.web | [SemanticUnit save] 93/140 (66.4%) | 0.99 items/s | elapsed=01:34 | eta=00:47 | saved=93 errors=0 position=92 id=unit_757760df5fb240e5acc21d0687c544e4
+2026-09-14 16:44:24,840 | INFO | news_generator.web | [SemanticUnit save] 94/140 (67.1%) | 0.99 items/s | elapsed=01:35 | eta=00:46 | saved=94 errors=0 position=93 id=unit_7dc09ef8d84f4effa29d1019f0e36db7
+2026-09-14 16:44:25,857 | INFO | news_generator.web | [SemanticUnit save] 95/140 (67.9%) | 0.99 items/s | elapsed=01:36 | eta=00:45 | saved=95 errors=0 position=94 id=unit_065a340945c5412ea5c2ea3fb2270258
+2026-09-14 16:44:26,868 | INFO | news_generator.web | [SemanticUnit save] 96/140 (68.6%) | 0.99 items/s | elapsed=01:37 | eta=00:44 | saved=96 errors=0 position=95 id=unit_89dc68bbbf224c84b6e19b8e2bb707c0
+2026-09-14 16:44:27,888 | INFO | news_generator.web | [SemanticUnit save] 97/140 (69.3%) | 0.99 items/s | elapsed=01:38 | eta=00:43 | saved=97 errors=0 position=96 id=unit_f05fc970b4104ae7b550e38f4c0bb536
+2026-09-14 16:44:28,904 | INFO | news_generator.web | [SemanticUnit save] 98/140 (70.0%) | 0.99 items/s | elapsed=01:39 | eta=00:42 | saved=98 errors=0 position=97 id=unit_aab78a83ce6241a596f0fa28e1ad3673
+2026-09-14 16:44:29,915 | INFO | news_generator.web | [SemanticUnit save] 99/140 (70.7%) | 0.99 items/s | elapsed=01:40 | eta=00:41 | saved=99 errors=0 position=98 id=unit_1beac9f0b101454cb23ce5b3c245c36b
+2026-09-14 16:44:30,932 | INFO | news_generator.web | [SemanticUnit save] 100/140 (71.4%) | 0.99 items/s | elapsed=01:41 | eta=00:40 | saved=100 errors=0 position=99 id=unit_efe6d24e0639483ab31e2d9dbf82deb7
+2026-09-14 16:44:31,952 | INFO | news_generator.web | [SemanticUnit save] 101/140 (72.1%) | 0.99 items/s | elapsed=01:42 | eta=00:39 | saved=101 errors=0 position=100 id=unit_d07493ae29ea49b7bdb217aa616c7149
+2026-09-14 16:44:32,971 | INFO | news_generator.web | [SemanticUnit save] 102/140 (72.9%) | 0.99 items/s | elapsed=01:43 | eta=00:38 | saved=102 errors=0 position=101 id=unit_714f07babeeb41f0945ee27f5fe97b4e
+2026-09-14 16:44:33,987 | INFO | news_generator.web | [SemanticUnit save] 103/140 (73.6%) | 0.99 items/s | elapsed=01:44 | eta=00:37 | saved=103 errors=0 position=102 id=unit_2cce19ac5b014312a8fe91d54a141adf
+2026-09-14 16:44:35,000 | INFO | news_generator.web | [SemanticUnit save] 104/140 (74.3%) | 0.99 items/s | elapsed=01:45 | eta=00:36 | saved=104 errors=0 position=103 id=unit_4d09d9522b5941c9b1c63f5f9684d90e
+2026-09-14 16:44:36,020 | INFO | news_generator.web | [SemanticUnit save] 105/140 (75.0%) | 0.99 items/s | elapsed=01:46 | eta=00:35 | saved=105 errors=0 position=104 id=unit_431664c5bb964edb80b195067ca1741f
+2026-09-14 16:44:37,037 | INFO | news_generator.web | [SemanticUnit save] 106/140 (75.7%) | 0.99 items/s | elapsed=01:47 | eta=00:34 | saved=106 errors=0 position=105 id=unit_6cfee015c3b74dcb89538ce227624c9c
+2026-09-14 16:44:38,055 | INFO | news_generator.web | [SemanticUnit save] 107/140 (76.4%) | 0.99 items/s | elapsed=01:48 | eta=00:33 | saved=107 errors=0 position=106 id=unit_486ac32c3b8541269fdb7f8ab86bcb87
+2026-09-14 16:44:39,074 | INFO | news_generator.web | [SemanticUnit save] 108/140 (77.1%) | 0.99 items/s | elapsed=01:49 | eta=00:32 | saved=108 errors=0 position=107 id=unit_741fce114ef74fa2ac5378e071b72b93
+2026-09-14 16:44:40,091 | INFO | news_generator.web | [SemanticUnit save] 109/140 (77.9%) | 0.99 items/s | elapsed=01:50 | eta=00:31 | saved=109 errors=0 position=108 id=unit_83e9f0570f3c4440bc35dcc26373d7d9
+2026-09-14 16:44:41,107 | INFO | news_generator.web | [SemanticUnit save] 110/140 (78.6%) | 0.99 items/s | elapsed=01:51 | eta=00:30 | saved=110 errors=0 position=109 id=unit_4579a7dd88364b698ea18b0abb4ba911
+2026-09-14 16:44:42,124 | INFO | news_generator.web | [SemanticUnit save] 111/140 (79.3%) | 0.99 items/s | elapsed=01:52 | eta=00:29 | saved=111 errors=0 position=110 id=unit_763549b9cb0e43469bd3a89763702e76
+2026-09-14 16:44:43,137 | INFO | news_generator.web | [SemanticUnit save] 112/140 (80.0%) | 0.99 items/s | elapsed=01:53 | eta=00:28 | saved=112 errors=0 position=111 id=unit_839cb7119b434da78602cc8d92327a4e
+2026-09-14 16:44:44,153 | INFO | news_generator.web | [SemanticUnit save] 113/140 (80.7%) | 0.99 items/s | elapsed=01:54 | eta=00:27 | saved=113 errors=0 position=112 id=unit_2b0f45308cc246b0b055399591f2937e
+2026-09-14 16:44:45,170 | INFO | news_generator.web | [SemanticUnit save] 114/140 (81.4%) | 0.99 items/s | elapsed=01:55 | eta=00:26 | saved=114 errors=0 position=113 id=unit_8f7f780019724091b29ef1320d00d3c1
+2026-09-14 16:44:46,185 | INFO | news_generator.web | [SemanticUnit save] 115/140 (82.1%) | 0.99 items/s | elapsed=01:56 | eta=00:25 | saved=115 errors=0 position=114 id=unit_b04fef6f553d4e1e93e1b750463da82c
+2026-09-14 16:44:47,203 | INFO | news_generator.web | [SemanticUnit save] 116/140 (82.9%) | 0.99 items/s | elapsed=01:57 | eta=00:24 | saved=116 errors=0 position=115 id=unit_8ce1f03b47e746a1915e3fe4cb8a93f0
+2026-09-14 16:44:48,214 | INFO | news_generator.web | [SemanticUnit save] 117/140 (83.6%) | 0.99 items/s | elapsed=01:58 | eta=00:23 | saved=117 errors=0 position=116 id=unit_34e018d5326e46bfacfa851643b804b8
+2026-09-14 16:44:49,231 | INFO | news_generator.web | [SemanticUnit save] 118/140 (84.3%) | 0.99 items/s | elapsed=01:59 | eta=00:22 | saved=118 errors=0 position=117 id=unit_e90bbfe3404a4a2a9a6f2c3a2649bb55
+2026-09-14 16:44:50,247 | INFO | news_generator.web | [SemanticUnit save] 119/140 (85.0%) | 0.99 items/s | elapsed=02:00 | eta=00:21 | saved=119 errors=0 position=118 id=unit_817b93d590c543dabbe6c9ecc1684724
+2026-09-14 16:44:51,258 | INFO | news_generator.web | [SemanticUnit save] 120/140 (85.7%) | 0.99 items/s | elapsed=02:01 | eta=00:20 | saved=120 errors=0 position=119 id=unit_93e518380fc24794ad9def345ee60edf
+2026-09-14 16:44:52,270 | INFO | news_generator.web | [SemanticUnit save] 121/140 (86.4%) | 0.99 items/s | elapsed=02:02 | eta=00:19 | saved=121 errors=0 position=120 id=unit_d199592e81564671a18376f56af0b97c
+2026-09-14 16:44:53,289 | INFO | news_generator.web | [SemanticUnit save] 122/140 (87.1%) | 0.99 items/s | elapsed=02:03 | eta=00:18 | saved=122 errors=0 position=121 id=unit_7b824919c2504717999801c830a0f715
+2026-09-14 16:44:54,299 | INFO | news_generator.web | [SemanticUnit save] 123/140 (87.9%) | 0.99 items/s | elapsed=02:04 | eta=00:17 | saved=123 errors=0 position=122 id=unit_f622e6a54849412d8229170cec1a5cdf
+2026-09-14 16:44:55,318 | INFO | news_generator.web | [SemanticUnit save] 124/140 (88.6%) | 0.99 items/s | elapsed=02:05 | eta=00:16 | saved=124 errors=0 position=123 id=unit_ad365261b6b04b5f828b6f98910bcd62
+2026-09-14 16:44:56,339 | INFO | news_generator.web | [SemanticUnit save] 125/140 (89.3%) | 0.99 items/s | elapsed=02:06 | eta=00:15 | saved=125 errors=0 position=124 id=unit_dc09cbbfed3340da99d14d517d17b6f3
+2026-09-14 16:44:57,359 | INFO | news_generator.web | [SemanticUnit save] 126/140 (90.0%) | 0.99 items/s | elapsed=02:07 | eta=00:14 | saved=126 errors=0 position=125 id=unit_95696b62035c43829c6c51fc14d5a977
+2026-09-14 16:44:58,381 | INFO | news_generator.web | [SemanticUnit save] 127/140 (90.7%) | 0.99 items/s | elapsed=02:08 | eta=00:13 | saved=127 errors=0 position=126 id=unit_a54e944a5c74406fa90991fc5ee98618
+2026-09-14 16:44:59,391 | INFO | news_generator.web | [SemanticUnit save] 128/140 (91.4%) | 0.99 items/s | elapsed=02:09 | eta=00:12 | saved=128 errors=0 position=127 id=unit_a7c431eb911c4b638b7d542facde6b73
+2026-09-14 16:45:00,409 | INFO | news_generator.web | [SemanticUnit save] 129/140 (92.1%) | 0.99 items/s | elapsed=02:10 | eta=00:11 | saved=129 errors=0 position=128 id=unit_27b601ea96ba458eb60bc916d8b61aea
+2026-09-14 16:45:01,430 | INFO | news_generator.web | [SemanticUnit save] 130/140 (92.9%) | 0.99 items/s | elapsed=02:11 | eta=00:10 | saved=130 errors=0 position=129 id=unit_da76f67f8373448d9b2e2bae63c3ccfe
+2026-09-14 16:45:02,441 | INFO | news_generator.web | [SemanticUnit save] 131/140 (93.6%) | 0.99 items/s | elapsed=02:13 | eta=00:09 | saved=131 errors=0 position=130 id=unit_9ce7dc1ef4ed48a9a8223441995d2268
+2026-09-14 16:45:03,456 | INFO | news_generator.web | [SemanticUnit save] 132/140 (94.3%) | 0.99 items/s | elapsed=02:14 | eta=00:08 | saved=132 errors=0 position=131 id=unit_c65ade63ea904c2ca6ad97b5ffde50a2
+2026-09-14 16:45:04,475 | INFO | news_generator.web | [SemanticUnit save] 133/140 (95.0%) | 0.99 items/s | elapsed=02:15 | eta=00:07 | saved=133 errors=0 position=132 id=unit_dc816abe89034b9c85c944bacdbb112f
+2026-09-14 16:45:05,487 | INFO | news_generator.web | [SemanticUnit save] 134/140 (95.7%) | 0.99 items/s | elapsed=02:16 | eta=00:06 | saved=134 errors=0 position=133 id=unit_7504d6c29d50492e91ff15a7d05027ad
+2026-09-14 16:45:06,507 | INFO | news_generator.web | [SemanticUnit save] 135/140 (96.4%) | 0.99 items/s | elapsed=02:17 | eta=00:05 | saved=135 errors=0 position=134 id=unit_fd5879af85a64da89fd0512ad7862935
+2026-09-14 16:45:07,525 | INFO | news_generator.web | [SemanticUnit save] 136/140 (97.1%) | 0.99 items/s | elapsed=02:18 | eta=00:04 | saved=136 errors=0 position=135 id=unit_b130b47be42840b48cf9a9463a2cb8ca
+2026-09-14 16:45:08,538 | INFO | news_generator.web | [SemanticUnit save] 137/140 (97.9%) | 0.99 items/s | elapsed=02:19 | eta=00:03 | saved=137 errors=0 position=136 id=unit_e5836a41ac51458fbefa58994273ecd5
+2026-09-14 16:45:09,557 | INFO | news_generator.web | [SemanticUnit save] 138/140 (98.6%) | 0.99 items/s | elapsed=02:20 | eta=00:02 | saved=138 errors=0 position=137 id=unit_a760192c74004326a767a06b154c22c3
+2026-09-14 16:45:10,571 | INFO | news_generator.web | [SemanticUnit save] 139/140 (99.3%) | 0.99 items/s | elapsed=02:21 | eta=00:01 | saved=139 errors=0 position=138 id=unit_880756ab28a44432a5eff3c993c52c90
+2026-09-14 16:45:11,586 | INFO | news_generator.web | [SemanticUnit save] 140/140 (100.0%) | 0.99 items/s | elapsed=02:22 | eta=00:00 | saved=140 errors=0 position=139 id=unit_0d7154605e7344cf8be26499244be1c0
+2026-09-14 16:45:11,586 | INFO | news_generator.web | [SemanticUnit save] Finished: saved=140/140 errors=0 duration=02:22
+2026-09-14 16:45:11,586 | INFO | news_generator.web | [SemanticUnit embeddings] Starting: 140/140 saved units require embeddings | concurrency=2
+2026-09-14 16:45:28,874 | INFO | news_generator.web | [SemanticUnit embeddings] 1/140 (0.7%) | 0.06 items/s | elapsed=00:17 | eta=40:03 | ok=1 failed=0 id=unit_39b8975f480741399d9b913093cd6d41 status=ok
+2026-09-14 16:45:28,878 | INFO | news_generator.web | [SemanticUnit embeddings] 2/140 (1.4%) | 0.12 items/s | elapsed=00:17 | eta=19:53 | ok=2 failed=0 id=unit_7f57932e386d43488c5577c0ca4bb38e status=ok
+2026-09-14 16:45:29,303 | INFO | news_generator.web | [SemanticUnit embeddings] 3/140 (2.1%) | 0.17 items/s | elapsed=00:18 | eta=13:29 | ok=3 failed=0 id=unit_5ed0067623d04e678cf9c01a57af46f1 status=ok
+2026-09-14 16:45:29,497 | INFO | news_generator.web | [SemanticUnit embeddings] 4/140 (2.9%) | 0.22 items/s | elapsed=00:18 | eta=10:09 | ok=4 failed=0 id=unit_af2277f98d744e20bec15068d803dace status=ok
+2026-09-14 16:45:29,919 | INFO | news_generator.web | [SemanticUnit embeddings] 5/140 (3.6%) | 0.27 items/s | elapsed=00:18 | eta=08:15 | ok=5 failed=0 id=unit_ff5820715f70427bb101ddd3cf28668f status=ok
+2026-09-14 16:45:30,113 | INFO | news_generator.web | [SemanticUnit embeddings] 6/140 (4.3%) | 0.32 items/s | elapsed=00:19 | eta=06:54 | ok=6 failed=0 id=unit_ac9afa29d96c4e9d9cc69bb2519d11eb status=ok
+2026-09-14 16:45:30,528 | INFO | news_generator.web | [SemanticUnit embeddings] 7/140 (5.0%) | 0.37 items/s | elapsed=00:19 | eta=06:00 | ok=7 failed=0 id=unit_59087dbaeb5a423183bbc70614eee844 status=ok
+2026-09-14 16:45:30,773 | INFO | news_generator.web | [SemanticUnit embeddings] 8/140 (5.7%) | 0.42 items/s | elapsed=00:19 | eta=05:17 | ok=8 failed=0 id=unit_a9de754bffee476eb0e712dd61606d59 status=ok
+2026-09-14 16:45:31,181 | INFO | news_generator.web | [SemanticUnit embeddings] 9/140 (6.4%) | 0.46 items/s | elapsed=00:20 | eta=04:45 | ok=9 failed=0 id=unit_cdfbfd5859c844e2ac0711d9929bdc31 status=ok
+2026-09-14 16:45:31,691 | INFO | news_generator.web | [SemanticUnit embeddings] 10/140 (7.1%) | 0.50 items/s | elapsed=00:20 | eta=04:21 | ok=10 failed=0 id=unit_e9b497d6e8c34db78a6f7c58aeb9d33a status=ok
+2026-09-14 16:45:31,852 | INFO | news_generator.web | [SemanticUnit embeddings] 11/140 (7.9%) | 0.54 items/s | elapsed=00:20 | eta=03:58 | ok=11 failed=0 id=unit_4c8d37a73e0f4a0a96058da028961c2d status=ok
+2026-09-14 16:45:32,208 | INFO | news_generator.web | [SemanticUnit embeddings] 12/140 (8.6%) | 0.58 items/s | elapsed=00:21 | eta=03:40 | ok=12 failed=0 id=unit_ad6097fe31244a5c8750af72e327d43f status=ok
+2026-09-14 16:45:32,356 | INFO | news_generator.web | [SemanticUnit embeddings] 13/140 (9.3%) | 0.63 items/s | elapsed=00:21 | eta=03:23 | ok=13 failed=0 id=unit_6e2940c8b9af456ab6011fe9f967a9d0 status=ok
+2026-09-14 16:45:32,796 | INFO | news_generator.web | [SemanticUnit embeddings] 14/140 (10.0%) | 0.66 items/s | elapsed=00:21 | eta=03:11 | ok=14 failed=0 id=unit_f99ae76fc6424c7f894c7cd32599b8c5 status=ok
+2026-09-14 16:45:33,015 | INFO | news_generator.web | [SemanticUnit embeddings] 15/140 (10.7%) | 0.70 items/s | elapsed=00:21 | eta=02:59 | ok=15 failed=0 id=unit_817fc0d1013f41d594b10df576fb7f12 status=ok
+2026-09-14 16:45:33,259 | INFO | news_generator.web | [SemanticUnit embeddings] 16/140 (11.4%) | 0.74 items/s | elapsed=00:22 | eta=02:48 | ok=16 failed=0 id=unit_f232ec078447443c8ed281e80553cfbc status=ok
+2026-09-14 16:45:33,477 | INFO | news_generator.web | [SemanticUnit embeddings] 17/140 (12.1%) | 0.78 items/s | elapsed=00:22 | eta=02:38 | ok=17 failed=0 id=unit_3224e61a780d4b608d4e701d6667a06e status=ok
+2026-09-14 16:45:33,786 | INFO | news_generator.web | [SemanticUnit embeddings] 18/140 (12.9%) | 0.81 items/s | elapsed=00:22 | eta=02:30 | ok=18 failed=0 id=unit_5968047477a94596b84586fd0d988fb8 status=ok
+2026-09-14 16:45:34,011 | INFO | news_generator.web | [SemanticUnit embeddings] 19/140 (13.6%) | 0.85 items/s | elapsed=00:22 | eta=02:23 | ok=19 failed=0 id=unit_0735fc15ce674c4f9aac2d3565c3f352 status=ok
+2026-09-14 16:45:34,305 | INFO | news_generator.web | [SemanticUnit embeddings] 20/140 (14.3%) | 0.88 items/s | elapsed=00:23 | eta=02:16 | ok=20 failed=0 id=unit_0a1b4f0ed58340dba10177980b728ac7 status=ok
+2026-09-14 16:45:34,525 | INFO | news_generator.web | [SemanticUnit embeddings] 21/140 (15.0%) | 0.92 items/s | elapsed=00:23 | eta=02:10 | ok=21 failed=0 id=unit_3f1c4d0a012c48f88160d67797bfcc9f status=ok
+2026-09-14 16:45:34,834 | INFO | news_generator.web | [SemanticUnit embeddings] 22/140 (15.7%) | 0.95 items/s | elapsed=00:23 | eta=02:05 | ok=22 failed=0 id=unit_62d21be360c7454d8ceecac640bf8fc8 status=ok
+2026-09-14 16:45:35,012 | INFO | news_generator.web | [SemanticUnit embeddings] 23/140 (16.4%) | 0.98 items/s | elapsed=00:23 | eta=01:59 | ok=23 failed=0 id=unit_e46dc0435dca450ebc18c1ec114fffb3 status=ok
+2026-09-14 16:45:35,434 | INFO | news_generator.web | [SemanticUnit embeddings] 24/140 (17.1%) | 1.01 items/s | elapsed=00:24 | eta=01:55 | ok=24 failed=0 id=unit_1f5001d012eb4d8ea422cfe52ddbaa13 status=ok
+2026-09-14 16:45:35,627 | INFO | news_generator.web | [SemanticUnit embeddings] 25/140 (17.9%) | 1.04 items/s | elapsed=00:24 | eta=01:51 | ok=25 failed=0 id=unit_803c28504ef14cc0a883659e2e1afa01 status=ok
+2026-09-14 16:45:36,140 | INFO | news_generator.web | [SemanticUnit embeddings] 26/140 (18.6%) | 1.06 items/s | elapsed=00:25 | eta=01:48 | ok=26 failed=0 id=unit_e3c45dad70d64b18a16b46440fc55266 status=ok
+2026-09-14 16:45:36,287 | INFO | news_generator.web | [SemanticUnit embeddings] 27/140 (19.3%) | 1.09 items/s | elapsed=00:25 | eta=01:43 | ok=27 failed=0 id=unit_3b584233c2a3460e90cfa8b937a2131e status=ok
+2026-09-14 16:45:36,762 | INFO | news_generator.web | [SemanticUnit embeddings] 28/140 (20.0%) | 1.11 items/s | elapsed=00:25 | eta=01:41 | ok=28 failed=0 id=unit_4c6524ab92f04896b496dc9ff76b23f6 status=ok
+2026-09-14 16:45:37,041 | INFO | news_generator.web | [SemanticUnit embeddings] 29/140 (20.7%) | 1.14 items/s | elapsed=00:25 | eta=01:37 | ok=29 failed=0 id=unit_cfd324fece3a4e9a9726d81904f62d7b status=ok
+2026-09-14 16:45:37,345 | INFO | news_generator.web | [SemanticUnit embeddings] 30/140 (21.4%) | 1.16 items/s | elapsed=00:26 | eta=01:34 | ok=30 failed=0 id=unit_eb701ded1611416a8948f25d6ea86a57 status=ok
+2026-09-14 16:45:37,578 | INFO | news_generator.web | [SemanticUnit embeddings] 31/140 (22.1%) | 1.19 items/s | elapsed=00:26 | eta=01:31 | ok=31 failed=0 id=unit_70bc63043e9b4a8cbc5eaeb7a8cba234 status=ok
+2026-09-14 16:45:37,885 | INFO | news_generator.web | [SemanticUnit embeddings] 32/140 (22.9%) | 1.22 items/s | elapsed=00:26 | eta=01:29 | ok=32 failed=0 id=unit_e61de4a486bf4efd947a5b9395e417d3 status=ok
+2026-09-14 16:45:38,179 | INFO | news_generator.web | [SemanticUnit embeddings] 33/140 (23.6%) | 1.24 items/s | elapsed=00:27 | eta=01:26 | ok=33 failed=0 id=unit_f2abdb2387a34e4bb5e7c753a5bfe03f status=ok
+2026-09-14 16:45:38,395 | INFO | news_generator.web | [SemanticUnit embeddings] 34/140 (24.3%) | 1.27 items/s | elapsed=00:27 | eta=01:24 | ok=34 failed=0 id=unit_f7371a4d1bc842578597b79ad0187a2f status=ok
+2026-09-14 16:45:38,641 | INFO | news_generator.web | [SemanticUnit embeddings] 35/140 (25.0%) | 1.29 items/s | elapsed=00:27 | eta=01:21 | ok=35 failed=0 id=unit_9df6670978924799bf048d0c93ef9d04 status=ok
+2026-09-14 16:45:38,912 | INFO | news_generator.web | [SemanticUnit embeddings] 36/140 (25.7%) | 1.32 items/s | elapsed=00:27 | eta=01:19 | ok=36 failed=0 id=unit_ad04201ec6b94260bd1fe9348553cdfb status=ok
+2026-09-14 16:45:39,161 | INFO | news_generator.web | [SemanticUnit embeddings] 37/140 (26.4%) | 1.34 items/s | elapsed=00:28 | eta=01:17 | ok=37 failed=0 id=unit_90ccad0ea0744e14a803556da141c18c status=ok
+2026-09-14 16:45:39,444 | INFO | news_generator.web | [SemanticUnit embeddings] 38/140 (27.1%) | 1.36 items/s | elapsed=00:28 | eta=01:15 | ok=38 failed=0 id=unit_d89fc7d6704348b9be6660721f893434 status=ok
+2026-09-14 16:45:39,690 | INFO | news_generator.web | [SemanticUnit embeddings] 39/140 (27.9%) | 1.39 items/s | elapsed=00:28 | eta=01:13 | ok=39 failed=0 id=unit_5bae8caa34a146779a516ab55787f2f4 status=ok
+2026-09-14 16:45:40,072 | INFO | news_generator.web | [SemanticUnit embeddings] 40/140 (28.6%) | 1.40 items/s | elapsed=00:28 | eta=01:11 | ok=40 failed=0 id=unit_41eae60789d14e3183ab9c69109c1b80 status=ok
+2026-09-14 16:45:40,264 | INFO | news_generator.web | [SemanticUnit embeddings] 41/140 (29.3%) | 1.43 items/s | elapsed=00:29 | eta=01:09 | ok=41 failed=0 id=unit_2f29aa09a359403d8c2b6cd74114f900 status=ok
+2026-09-14 16:45:40,683 | INFO | news_generator.web | [SemanticUnit embeddings] 42/140 (30.0%) | 1.44 items/s | elapsed=00:29 | eta=01:08 | ok=42 failed=0 id=unit_5839d648c25a43938a39281cde00e633 status=ok
+2026-09-14 16:45:40,921 | INFO | news_generator.web | [SemanticUnit embeddings] 43/140 (30.7%) | 1.47 items/s | elapsed=00:29 | eta=01:06 | ok=43 failed=0 id=unit_69cb7bc1c2c74a15bc1666141d044dec status=ok
+2026-09-14 16:45:41,161 | INFO | news_generator.web | [SemanticUnit embeddings] 44/140 (31.4%) | 1.49 items/s | elapsed=00:30 | eta=01:05 | ok=44 failed=0 id=unit_18738d8246634061af0dac4525de0e32 status=ok
+2026-09-14 16:45:41,398 | INFO | news_generator.web | [SemanticUnit embeddings] 45/140 (32.1%) | 1.51 items/s | elapsed=00:30 | eta=01:03 | ok=45 failed=0 id=unit_ae1f3e2367ad4de09fc562d0a12059fa status=ok
+2026-09-14 16:45:41,643 | INFO | news_generator.web | [SemanticUnit embeddings] 46/140 (32.9%) | 1.53 items/s | elapsed=00:30 | eta=01:01 | ok=46 failed=0 id=unit_8ef0797230ae46dfa7b82494d3c7e9be status=ok
+2026-09-14 16:45:41,902 | INFO | news_generator.web | [SemanticUnit embeddings] 47/140 (33.6%) | 1.55 items/s | elapsed=00:30 | eta=01:00 | ok=47 failed=0 id=unit_a6459fe0106648399cd315fbdbba8cbc status=ok
+2026-09-14 16:45:42,170 | INFO | news_generator.web | [SemanticUnit embeddings] 48/140 (34.3%) | 1.57 items/s | elapsed=00:31 | eta=00:59 | ok=48 failed=0 id=unit_8e6095590ae7408eb2b2a34133ec3525 status=ok
+2026-09-14 16:45:42,690 | INFO | news_generator.web | [SemanticUnit embeddings] 49/140 (35.0%) | 1.58 items/s | elapsed=00:31 | eta=00:58 | ok=49 failed=0 id=unit_6d29faa761264c6e9051071634d606e3 status=ok
+2026-09-14 16:45:43,040 | INFO | news_generator.web | [SemanticUnit embeddings] 50/140 (35.7%) | 1.59 items/s | elapsed=00:31 | eta=00:57 | ok=50 failed=0 id=unit_325641057f004684a0d8206ded37efa3 status=ok
+2026-09-14 16:45:44,410 | INFO | news_generator.web | [SemanticUnit embeddings] 51/140 (36.4%) | 1.55 items/s | elapsed=00:33 | eta=00:57 | ok=51 failed=0 id=unit_8c676fc82eca49dfa74d4a523c6bf8ee status=ok
+2026-09-14 16:45:44,410 | INFO | news_generator.web | [SemanticUnit embeddings] 52/140 (37.1%) | 1.58 items/s | elapsed=00:33 | eta=00:56 | ok=52 failed=0 id=unit_a1760d4e7bad48889b3da5ea3eed5d13 status=ok
+2026-09-14 16:45:45,435 | INFO | news_generator.web | [SemanticUnit embeddings] 53/140 (37.9%) | 1.57 items/s | elapsed=00:34 | eta=00:56 | ok=53 failed=0 id=unit_7e438b820ef84d5594be4f50662d6418 status=ok
+2026-09-14 16:45:45,493 | INFO | news_generator.web | [SemanticUnit embeddings] 54/140 (38.6%) | 1.59 items/s | elapsed=00:34 | eta=00:54 | ok=54 failed=0 id=unit_8102d3b9f42647879cd9dc29f67d38c7 status=ok
+2026-09-14 16:45:45,909 | INFO | news_generator.web | [SemanticUnit embeddings] 55/140 (39.3%) | 1.60 items/s | elapsed=00:34 | eta=00:53 | ok=55 failed=0 id=unit_e874a9e6e72b438c90274c5ba28f652d status=ok
+2026-09-14 16:45:45,939 | INFO | news_generator.web | [SemanticUnit embeddings] 56/140 (40.0%) | 1.63 items/s | elapsed=00:34 | eta=00:52 | ok=56 failed=0 id=unit_5f2d2d9eb3104d089f7a6bdffa47c354 status=ok
+2026-09-14 16:45:46,363 | INFO | news_generator.web | [SemanticUnit embeddings] 57/140 (40.7%) | 1.64 items/s | elapsed=00:35 | eta=00:51 | ok=57 failed=0 id=unit_09af08b570724ee38e556c39056c19f3 status=ok
+2026-09-14 16:45:46,496 | INFO | news_generator.web | [SemanticUnit embeddings] 58/140 (41.4%) | 1.66 items/s | elapsed=00:35 | eta=00:49 | ok=58 failed=0 id=unit_381aa3e323f342f5baf05940cf284010 status=ok
+2026-09-14 16:45:46,927 | INFO | news_generator.web | [SemanticUnit embeddings] 59/140 (42.1%) | 1.67 items/s | elapsed=00:35 | eta=00:49 | ok=59 failed=0 id=unit_f8021961f170477588a37ca378d39b02 status=ok
+2026-09-14 16:45:47,012 | INFO | news_generator.web | [SemanticUnit embeddings] 60/140 (42.9%) | 1.69 items/s | elapsed=00:35 | eta=00:47 | ok=60 failed=0 id=unit_1275f551b3f74f54a18a393334b97c5b status=ok
+2026-09-14 16:45:47,407 | INFO | news_generator.web | [SemanticUnit embeddings] 61/140 (43.6%) | 1.70 items/s | elapsed=00:36 | eta=00:46 | ok=61 failed=0 id=unit_f6d8de34dddc4e72ab109ca4ada69f74 status=ok
+2026-09-14 16:45:47,648 | INFO | news_generator.web | [SemanticUnit embeddings] 62/140 (44.3%) | 1.72 items/s | elapsed=00:36 | eta=00:45 | ok=62 failed=0 id=unit_8da4cb8057c046c680f72160a6d13c18 status=ok
+2026-09-14 16:45:47,943 | INFO | news_generator.web | [SemanticUnit embeddings] 63/140 (45.0%) | 1.73 items/s | elapsed=00:36 | eta=00:44 | ok=63 failed=0 id=unit_07cd63b1aadf43fbbb46f254aaa75ea2 status=ok
+2026-09-14 16:45:48,150 | INFO | news_generator.web | [SemanticUnit embeddings] 64/140 (45.7%) | 1.75 items/s | elapsed=00:37 | eta=00:43 | ok=64 failed=0 id=unit_5593bd096f58451f83ac92614f2eedc6 status=ok
+2026-09-14 16:45:48,457 | INFO | news_generator.web | [SemanticUnit embeddings] 65/140 (46.4%) | 1.76 items/s | elapsed=00:37 | eta=00:43 | ok=65 failed=0 id=unit_a962745012024844a72b87f6e802cbd0 status=ok
+2026-09-14 16:45:48,595 | INFO | news_generator.web | [SemanticUnit embeddings] 66/140 (47.1%) | 1.78 items/s | elapsed=00:37 | eta=00:41 | ok=66 failed=0 id=unit_71fbfc48faed42a08b28c93da0ceeb7d status=ok
+2026-09-14 16:45:48,985 | INFO | news_generator.web | [SemanticUnit embeddings] 67/140 (47.9%) | 1.79 items/s | elapsed=00:37 | eta=00:41 | ok=67 failed=0 id=unit_4438b29b444b42b1b433cf8c8e475326 status=ok
+2026-09-14 16:45:49,105 | INFO | news_generator.web | [SemanticUnit embeddings] 68/140 (48.6%) | 1.81 items/s | elapsed=00:38 | eta=00:40 | ok=68 failed=0 id=unit_a92e4f5a2e5c49079f86dbf6424cf2f0 status=ok
+2026-09-14 16:45:49,510 | INFO | news_generator.web | [SemanticUnit embeddings] 69/140 (49.3%) | 1.82 items/s | elapsed=00:38 | eta=00:39 | ok=69 failed=0 id=unit_c1e4645467d74445883abc502010c889 status=ok
+2026-09-14 16:45:49,589 | INFO | news_generator.web | [SemanticUnit embeddings] 70/140 (50.0%) | 1.84 items/s | elapsed=00:38 | eta=00:38 | ok=70 failed=0 id=unit_e479e57f25c94e1b8fab64aa77ae2790 status=ok
+2026-09-14 16:45:50,036 | INFO | news_generator.web | [SemanticUnit embeddings] 71/140 (50.7%) | 1.85 items/s | elapsed=00:38 | eta=00:37 | ok=71 failed=0 id=unit_73d177bff92d4072b1ce1d7ec499ce1c status=ok
+2026-09-14 16:45:50,246 | INFO | news_generator.web | [SemanticUnit embeddings] 72/140 (51.4%) | 1.86 items/s | elapsed=00:39 | eta=00:37 | ok=72 failed=0 id=unit_fedb4a9220e141b5b0a627c0562063c1 status=ok
+2026-09-14 16:45:50,682 | INFO | news_generator.web | [SemanticUnit embeddings] 73/140 (52.1%) | 1.87 items/s | elapsed=00:39 | eta=00:36 | ok=73 failed=0 id=unit_e6796ddc301b4e8d8cde294985607b89 status=ok
+2026-09-14 16:45:50,984 | INFO | news_generator.web | [SemanticUnit embeddings] 74/140 (52.9%) | 1.88 items/s | elapsed=00:39 | eta=00:35 | ok=74 failed=0 id=unit_af3bc7de6eaf449abf559b8748349bba status=ok
+2026-09-14 16:45:51,225 | INFO | news_generator.web | [SemanticUnit embeddings] 75/140 (53.6%) | 1.89 items/s | elapsed=00:40 | eta=00:34 | ok=75 failed=0 id=unit_081f0cec5928483e84bd7ade3d3c187c status=ok
+2026-09-14 16:45:51,500 | INFO | news_generator.web | [SemanticUnit embeddings] 76/140 (54.3%) | 1.90 items/s | elapsed=00:40 | eta=00:34 | ok=76 failed=0 id=unit_31fd3d2bb192485582ac18e54d1d78af status=ok
+2026-09-14 16:45:51,885 | INFO | news_generator.web | [SemanticUnit embeddings] 77/140 (55.0%) | 1.91 items/s | elapsed=00:40 | eta=00:33 | ok=77 failed=0 id=unit_e7140bfd3f7044f381aaf00fabd07ee2 status=ok
+2026-09-14 16:45:52,127 | INFO | news_generator.web | [SemanticUnit embeddings] 78/140 (55.7%) | 1.92 items/s | elapsed=00:41 | eta=00:32 | ok=78 failed=0 id=unit_ed8d76afebd24cefb7059685492ed16f status=ok
+2026-09-14 16:45:52,438 | INFO | news_generator.web | [SemanticUnit embeddings] 79/140 (56.4%) | 1.93 items/s | elapsed=00:41 | eta=00:32 | ok=79 failed=0 id=unit_ffc058e90b3341ec9ff150c097ba4b51 status=ok
+2026-09-14 16:45:52,671 | INFO | news_generator.web | [SemanticUnit embeddings] 80/140 (57.1%) | 1.95 items/s | elapsed=00:41 | eta=00:31 | ok=80 failed=0 id=unit_5e8cd2a9e44d4bc3836edb30533ca13a status=ok
+2026-09-14 16:45:52,927 | INFO | news_generator.web | [SemanticUnit embeddings] 81/140 (57.9%) | 1.96 items/s | elapsed=00:41 | eta=00:30 | ok=81 failed=0 id=unit_864d6605e2764bbe9e5acf59de4e6f19 status=ok
+2026-09-14 16:45:53,177 | INFO | news_generator.web | [SemanticUnit embeddings] 82/140 (58.6%) | 1.97 items/s | elapsed=00:42 | eta=00:29 | ok=82 failed=0 id=unit_8d04ced84584439087cf78fb5f3fff0a status=ok
+2026-09-14 16:45:53,383 | INFO | news_generator.web | [SemanticUnit embeddings] 83/140 (59.3%) | 1.99 items/s | elapsed=00:42 | eta=00:29 | ok=83 failed=0 id=unit_c4fc2eac7c9642808a894c67d7c228ed status=ok
+2026-09-14 16:45:53,703 | INFO | news_generator.web | [SemanticUnit embeddings] 84/140 (60.0%) | 1.99 items/s | elapsed=00:42 | eta=00:28 | ok=84 failed=0 id=unit_d258fb1e1b604743a46f3f45ec51b436 status=ok
+2026-09-14 16:45:53,872 | INFO | news_generator.web | [SemanticUnit embeddings] 85/140 (60.7%) | 2.01 items/s | elapsed=00:42 | eta=00:27 | ok=85 failed=0 id=unit_1f5a0f72728c49e5a2aec12b1a593781 status=ok
+2026-09-14 16:45:54,227 | INFO | news_generator.web | [SemanticUnit embeddings] 86/140 (61.4%) | 2.02 items/s | elapsed=00:43 | eta=00:27 | ok=86 failed=0 id=unit_ef8e03cec4e849d592227510759004dc status=ok
+2026-09-14 16:45:54,466 | INFO | news_generator.web | [SemanticUnit embeddings] 87/140 (62.1%) | 2.03 items/s | elapsed=00:43 | eta=00:26 | ok=87 failed=0 id=unit_cddf9c2dfccc44a4bafcd626e5e80db6 status=ok
+2026-09-14 16:45:54,748 | INFO | news_generator.web | [SemanticUnit embeddings] 88/140 (62.9%) | 2.04 items/s | elapsed=00:43 | eta=00:26 | ok=88 failed=0 id=unit_e81d010949c2414ebf1117736626def4 status=ok
+2026-09-14 16:45:54,942 | INFO | news_generator.web | [SemanticUnit embeddings] 89/140 (63.6%) | 2.05 items/s | elapsed=00:43 | eta=00:25 | ok=89 failed=0 id=unit_bace64a89bb94deaab7d2cd2d60ef3fe status=ok
+2026-09-14 16:45:55,358 | INFO | news_generator.web | [SemanticUnit embeddings] 90/140 (64.3%) | 2.06 items/s | elapsed=00:44 | eta=00:24 | ok=90 failed=0 id=unit_2b6c589644854f9ca43141f4b079a663 status=ok
+2026-09-14 16:45:55,599 | INFO | news_generator.web | [SemanticUnit embeddings] 91/140 (65.0%) | 2.07 items/s | elapsed=00:44 | eta=00:24 | ok=91 failed=0 id=unit_daf755573e674b3ca20311cb266f51fa status=ok
+2026-09-14 16:45:55,896 | INFO | news_generator.web | [SemanticUnit embeddings] 92/140 (65.7%) | 2.08 items/s | elapsed=00:44 | eta=00:23 | ok=92 failed=0 id=unit_d496aa4e1e1d495293d177900b8f2c65 status=ok
+2026-09-14 16:45:56,078 | INFO | news_generator.web | [SemanticUnit embeddings] 93/140 (66.4%) | 2.09 items/s | elapsed=00:44 | eta=00:22 | ok=93 failed=0 id=unit_757760df5fb240e5acc21d0687c544e4 status=ok
+2026-09-14 16:45:56,527 | INFO | news_generator.web | [SemanticUnit embeddings] 94/140 (67.1%) | 2.09 items/s | elapsed=00:45 | eta=00:22 | ok=94 failed=0 id=unit_7dc09ef8d84f4effa29d1019f0e36db7 status=ok
+2026-09-14 16:45:56,751 | INFO | news_generator.web | [SemanticUnit embeddings] 95/140 (67.9%) | 2.10 items/s | elapsed=00:45 | eta=00:21 | ok=95 failed=0 id=unit_065a340945c5412ea5c2ea3fb2270258 status=ok
+2026-09-14 16:45:57,226 | INFO | news_generator.web | [SemanticUnit embeddings] 96/140 (68.6%) | 2.10 items/s | elapsed=00:46 | eta=00:21 | ok=96 failed=0 id=unit_89dc68bbbf224c84b6e19b8e2bb707c0 status=ok
+2026-09-14 16:45:57,266 | INFO | news_generator.web | [SemanticUnit embeddings] 97/140 (69.3%) | 2.12 items/s | elapsed=00:46 | eta=00:20 | ok=97 failed=0 id=unit_f05fc970b4104ae7b550e38f4c0bb536 status=ok
+2026-09-14 16:45:57,694 | INFO | news_generator.web | [SemanticUnit embeddings] 98/140 (70.0%) | 2.13 items/s | elapsed=00:46 | eta=00:20 | ok=98 failed=0 id=unit_aab78a83ce6241a596f0fa28e1ad3673 status=ok
+2026-09-14 16:45:58,040 | INFO | news_generator.web | [SemanticUnit embeddings] 99/140 (70.7%) | 2.13 items/s | elapsed=00:46 | eta=00:19 | ok=99 failed=0 id=unit_1beac9f0b101454cb23ce5b3c245c36b status=ok
+2026-09-14 16:45:58,421 | INFO | news_generator.web | [SemanticUnit embeddings] 100/140 (71.4%) | 2.14 items/s | elapsed=00:47 | eta=00:19 | ok=100 failed=0 id=unit_efe6d24e0639483ab31e2d9dbf82deb7 status=ok
+2026-09-14 16:45:58,582 | INFO | news_generator.web | [SemanticUnit embeddings] 101/140 (72.1%) | 2.15 items/s | elapsed=00:47 | eta=00:18 | ok=101 failed=0 id=unit_d07493ae29ea49b7bdb217aa616c7149 status=ok
+2026-09-14 16:45:58,948 | INFO | news_generator.web | [SemanticUnit embeddings] 102/140 (72.9%) | 2.15 items/s | elapsed=00:47 | eta=00:18 | ok=102 failed=0 id=unit_714f07babeeb41f0945ee27f5fe97b4e status=ok
+2026-09-14 16:45:59,104 | INFO | news_generator.web | [SemanticUnit embeddings] 103/140 (73.6%) | 2.17 items/s | elapsed=00:48 | eta=00:17 | ok=103 failed=0 id=unit_2cce19ac5b014312a8fe91d54a141adf status=ok
+2026-09-14 16:45:59,466 | INFO | news_generator.web | [SemanticUnit embeddings] 104/140 (74.3%) | 2.17 items/s | elapsed=00:48 | eta=00:17 | ok=104 failed=0 id=unit_4d09d9522b5941c9b1c63f5f9684d90e status=ok
+2026-09-14 16:45:59,686 | INFO | news_generator.web | [SemanticUnit embeddings] 105/140 (75.0%) | 2.18 items/s | elapsed=00:48 | eta=00:16 | ok=105 failed=0 id=unit_431664c5bb964edb80b195067ca1741f status=ok
+2026-09-14 16:45:59,990 | INFO | news_generator.web | [SemanticUnit embeddings] 106/140 (75.7%) | 2.19 items/s | elapsed=00:48 | eta=00:16 | ok=106 failed=0 id=unit_6cfee015c3b74dcb89538ce227624c9c status=ok
+2026-09-14 16:46:00,186 | INFO | news_generator.web | [SemanticUnit embeddings] 107/140 (76.4%) | 2.20 items/s | elapsed=00:49 | eta=00:15 | ok=107 failed=0 id=unit_486ac32c3b8541269fdb7f8ab86bcb87 status=ok
+2026-09-14 16:46:00,539 | INFO | news_generator.web | [SemanticUnit embeddings] 108/140 (77.1%) | 2.21 items/s | elapsed=00:49 | eta=00:15 | ok=108 failed=0 id=unit_741fce114ef74fa2ac5378e071b72b93 status=ok
+2026-09-14 16:46:00,790 | INFO | news_generator.web | [SemanticUnit embeddings] 109/140 (77.9%) | 2.22 items/s | elapsed=00:49 | eta=00:14 | ok=109 failed=0 id=unit_83e9f0570f3c4440bc35dcc26373d7d9 status=ok
+2026-09-14 16:46:01,044 | INFO | news_generator.web | [SemanticUnit embeddings] 110/140 (78.6%) | 2.22 items/s | elapsed=00:49 | eta=00:13 | ok=110 failed=0 id=unit_4579a7dd88364b698ea18b0abb4ba911 status=ok
+2026-09-14 16:46:01,264 | INFO | news_generator.web | [SemanticUnit embeddings] 111/140 (79.3%) | 2.23 items/s | elapsed=00:50 | eta=00:13 | ok=111 failed=0 id=unit_763549b9cb0e43469bd3a89763702e76 status=ok
+2026-09-14 16:46:01,666 | INFO | news_generator.web | [SemanticUnit embeddings] 112/140 (80.0%) | 2.24 items/s | elapsed=00:50 | eta=00:13 | ok=112 failed=0 id=unit_839cb7119b434da78602cc8d92327a4e status=ok
+2026-09-14 16:46:01,989 | INFO | news_generator.web | [SemanticUnit embeddings] 113/140 (80.7%) | 2.24 items/s | elapsed=00:50 | eta=00:12 | ok=113 failed=0 id=unit_2b0f45308cc246b0b055399591f2937e status=ok
+2026-09-14 16:46:02,226 | INFO | news_generator.web | [SemanticUnit embeddings] 114/140 (81.4%) | 2.25 items/s | elapsed=00:51 | eta=00:12 | ok=114 failed=0 id=unit_8f7f780019724091b29ef1320d00d3c1 status=ok
+2026-09-14 16:46:02,513 | INFO | news_generator.web | [SemanticUnit embeddings] 115/140 (82.1%) | 2.26 items/s | elapsed=00:51 | eta=00:11 | ok=115 failed=0 id=unit_b04fef6f553d4e1e93e1b750463da82c status=ok
+2026-09-14 16:46:02,788 | INFO | news_generator.web | [SemanticUnit embeddings] 116/140 (82.9%) | 2.27 items/s | elapsed=00:51 | eta=00:11 | ok=116 failed=0 id=unit_8ce1f03b47e746a1915e3fe4cb8a93f0 status=ok
+2026-09-14 16:46:03,033 | INFO | news_generator.web | [SemanticUnit embeddings] 117/140 (83.6%) | 2.27 items/s | elapsed=00:51 | eta=00:10 | ok=117 failed=0 id=unit_34e018d5326e46bfacfa851643b804b8 status=ok
+2026-09-14 16:46:03,271 | INFO | news_generator.web | [SemanticUnit embeddings] 118/140 (84.3%) | 2.28 items/s | elapsed=00:52 | eta=00:10 | ok=118 failed=0 id=unit_e90bbfe3404a4a2a9a6f2c3a2649bb55 status=ok
+2026-09-14 16:46:03,559 | INFO | news_generator.web | [SemanticUnit embeddings] 119/140 (85.0%) | 2.29 items/s | elapsed=00:52 | eta=00:09 | ok=119 failed=0 id=unit_817b93d590c543dabbe6c9ecc1684724 status=ok
+2026-09-14 16:46:03,835 | INFO | news_generator.web | [SemanticUnit embeddings] 120/140 (85.7%) | 2.30 items/s | elapsed=00:52 | eta=00:09 | ok=120 failed=0 id=unit_93e518380fc24794ad9def345ee60edf status=ok
+2026-09-14 16:46:04,183 | INFO | news_generator.web | [SemanticUnit embeddings] 121/140 (86.4%) | 2.30 items/s | elapsed=00:53 | eta=00:08 | ok=121 failed=0 id=unit_d199592e81564671a18376f56af0b97c status=ok
+2026-09-14 16:46:04,305 | INFO | news_generator.web | [SemanticUnit embeddings] 122/140 (87.1%) | 2.31 items/s | elapsed=00:53 | eta=00:08 | ok=122 failed=0 id=unit_7b824919c2504717999801c830a0f715 status=ok
+2026-09-14 16:46:04,723 | INFO | news_generator.web | [SemanticUnit embeddings] 123/140 (87.9%) | 2.31 items/s | elapsed=00:53 | eta=00:07 | ok=123 failed=0 id=unit_f622e6a54849412d8229170cec1a5cdf status=ok
+2026-09-14 16:46:05,086 | INFO | news_generator.web | [SemanticUnit embeddings] 124/140 (88.6%) | 2.32 items/s | elapsed=00:54 | eta=00:07 | ok=124 failed=0 id=unit_ad365261b6b04b5f828b6f98910bcd62 status=ok
+2026-09-14 16:46:05,609 | INFO | news_generator.web | [SemanticUnit embeddings] 125/140 (89.3%) | 2.31 items/s | elapsed=00:54 | eta=00:06 | ok=125 failed=0 id=unit_dc09cbbfed3340da99d14d517d17b6f3 status=ok
+2026-09-14 16:46:06,309 | INFO | news_generator.web | [SemanticUnit embeddings] 126/140 (90.0%) | 2.30 items/s | elapsed=00:55 | eta=00:06 | ok=126 failed=0 id=unit_95696b62035c43829c6c51fc14d5a977 status=ok
+2026-09-14 16:46:07,163 | INFO | news_generator.web | [SemanticUnit embeddings] 127/140 (90.7%) | 2.29 items/s | elapsed=00:56 | eta=00:06 | ok=127 failed=0 id=unit_a54e944a5c74406fa90991fc5ee98618 status=ok
+2026-09-14 16:46:07,907 | INFO | news_generator.web | [SemanticUnit embeddings] 128/140 (91.4%) | 2.27 items/s | elapsed=00:56 | eta=00:05 | ok=128 failed=0 id=unit_a7c431eb911c4b638b7d542facde6b73 status=ok
+2026-09-14 16:46:08,077 | INFO | news_generator.web | [SemanticUnit embeddings] 129/140 (92.1%) | 2.28 items/s | elapsed=00:56 | eta=00:05 | ok=129 failed=0 id=unit_27b601ea96ba458eb60bc916d8b61aea status=ok
+2026-09-14 16:46:08,500 | INFO | news_generator.web | [SemanticUnit embeddings] 130/140 (92.9%) | 2.28 items/s | elapsed=00:57 | eta=00:04 | ok=130 failed=0 id=unit_da76f67f8373448d9b2e2bae63c3ccfe status=ok
+2026-09-14 16:46:08,805 | INFO | news_generator.web | [SemanticUnit embeddings] 131/140 (93.6%) | 2.29 items/s | elapsed=00:57 | eta=00:04 | ok=131 failed=0 id=unit_9ce7dc1ef4ed48a9a8223441995d2268 status=ok
+2026-09-14 16:46:09,026 | INFO | news_generator.web | [SemanticUnit embeddings] 132/140 (94.3%) | 2.30 items/s | elapsed=00:57 | eta=00:03 | ok=132 failed=0 id=unit_c65ade63ea904c2ca6ad97b5ffde50a2 status=ok
+2026-09-14 16:46:09,330 | INFO | news_generator.web | [SemanticUnit embeddings] 133/140 (95.0%) | 2.30 items/s | elapsed=00:58 | eta=00:03 | ok=133 failed=0 id=unit_dc816abe89034b9c85c944bacdbb112f status=ok
+2026-09-14 16:46:09,547 | INFO | news_generator.web | [SemanticUnit embeddings] 134/140 (95.7%) | 2.31 items/s | elapsed=00:58 | eta=00:03 | ok=134 failed=0 id=unit_7504d6c29d50492e91ff15a7d05027ad status=ok
+2026-09-14 16:46:09,848 | INFO | news_generator.web | [SemanticUnit embeddings] 135/140 (96.4%) | 2.32 items/s | elapsed=00:58 | eta=00:02 | ok=135 failed=0 id=unit_fd5879af85a64da89fd0512ad7862935 status=ok
+2026-09-14 16:46:10,200 | INFO | news_generator.web | [SemanticUnit embeddings] 136/140 (97.1%) | 2.32 items/s | elapsed=00:59 | eta=00:02 | ok=136 failed=0 id=unit_b130b47be42840b48cf9a9463a2cb8ca status=ok
+2026-09-14 16:46:10,479 | INFO | news_generator.web | [SemanticUnit embeddings] 137/140 (97.9%) | 2.33 items/s | elapsed=00:59 | eta=00:01 | ok=137 failed=0 id=unit_e5836a41ac51458fbefa58994273ecd5 status=ok
+2026-09-14 16:46:10,665 | INFO | news_generator.web | [SemanticUnit embeddings] 138/140 (98.6%) | 2.34 items/s | elapsed=00:59 | eta=00:01 | ok=138 failed=0 id=unit_a760192c74004326a767a06b154c22c3 status=ok
+2026-09-14 16:46:11,004 | INFO | news_generator.web | [SemanticUnit embeddings] 139/140 (99.3%) | 2.34 items/s | elapsed=00:59 | eta=00:00 | ok=139 failed=0 id=unit_880756ab28a44432a5eff3c993c52c90 status=ok
+2026-09-14 16:46:11,146 | INFO | news_generator.web | [SemanticUnit embeddings] 140/140 (100.0%) | 2.35 items/s | elapsed=01:00 | eta=00:00 | ok=140 failed=0 id=unit_0d7154605e7344cf8be26499244be1c0 status=ok
+2026-09-14 16:46:11,147 | INFO | news_generator.web | [SemanticUnit embeddings] Finished: created=140/140 failed=0 duration=01:00
+2026-09-14 16:46:11,147 | INFO | news_generator.web | SemanticUnit import finished: source_document_id=doc_662fb847310844248e4a24ce38eced91 received=140 selected=140 added=140 skipped=0 errors=0 embeddings_created=140 embeddings_failed=0 duration=03:21
+2026-09-14 17:46:59,292 | INFO | news_generator.web | Stopping News Generator Admin
+2026-09-14 17:46:59,294 | INFO | news_generator.web | Yandex embedding client closed
+2026-09-14 17:46:59,295 | INFO | news_generator.web | Elasticsearch connection closed
+2026-09-14 17:46:59,774 | INFO | news_generator.web | Starting News Generator Admin
+2026-09-14 17:46:59,803 | INFO | news_generator.web | Elasticsearch indices are ready
+2026-09-14 17:47:28,813 | INFO | news_generator.web | Stopping News Generator Admin
+2026-09-14 17:47:28,823 | INFO | news_generator.web | Yandex embedding client closed
+2026-09-14 17:47:28,823 | INFO | news_generator.web | Elasticsearch connection closed
+2026-09-14 17:47:29,239 | INFO | news_generator.web | Starting News Generator Admin
+2026-09-14 17:47:29,255 | INFO | news_generator.web | Elasticsearch indices are ready
+2026-09-14 17:47:31,480 | INFO | news_generator.web | Stopping News Generator Admin
+2026-09-14 17:47:31,486 | INFO | news_generator.web | Yandex embedding client closed
+2026-09-14 17:47:31,486 | INFO | news_generator.web | Elasticsearch connection closed
+2026-09-14 17:47:31,875 | INFO | news_generator.web | Starting News Generator Admin
+2026-09-14 17:47:31,892 | INFO | news_generator.web | Elasticsearch indices are ready
+2026-09-14 17:50:10,119 | WARNING | news_generator.web | Failed to prepare AtomicThesis preview: Для scope=species нужно указать ровно один таксон
+2026-09-14 17:51:05,193 | WARNING | news_generator.web | Failed to prepare AtomicThesis preview: 1 validation error for SemanticUnit
+  Value error, embedding_model cannot be specified without doc_embedding [type=value_error, input_value={'id': 'unit_08b41e875b78...T13:35:08.484394+00:00'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.13/v/value_error
+2026-09-14 17:51:06,399 | WARNING | news_generator.web | Failed to prepare AtomicThesis preview: 1 validation error for SemanticUnit
+  Value error, embedding_model cannot be specified without doc_embedding [type=value_error, input_value={'id': 'unit_08b41e875b78...T13:35:08.484394+00:00'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.13/v/value_error
+2026-09-14 17:56:06,470 | INFO | news_generator.web | Stopping News Generator Admin
+2026-09-14 17:56:06,471 | INFO | news_generator.web | Yandex embedding client closed
+2026-09-14 17:56:06,472 | INFO | news_generator.web | Elasticsearch connection closed
+2026-09-14 17:56:06,877 | INFO | news_generator.web | Starting News Generator Admin
+2026-09-14 17:56:06,908 | INFO | news_generator.web | Elasticsearch indices are ready
+2026-09-14 17:57:03,595 | INFO | news_generator.web | AtomicThesis preview prepared: text_hash=8a742d8e5e62390a81221c17a185f4f38fc2b54f25e21a14898c415d11a177b0 candidates=20 exact_existing=None
