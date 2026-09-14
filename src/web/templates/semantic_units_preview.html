@@ -1,0 +1,377 @@
+{% extends "base.html" %}
+
+{% block title %}
+Проверка Semantic Units
+{% endblock %}
+
+{% block content %}
+
+<style>
+    .source-card,
+    .unit-card,
+    .toolbar,
+    .commit-panel {
+        background: #fff;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+    }
+
+    .source-card {
+        padding: 18px;
+        margin-bottom: 18px;
+    }
+
+    .toolbar {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        padding: 14px;
+        margin-bottom: 18px;
+    }
+
+    .unit-card {
+        padding: 18px;
+        margin-bottom: 18px;
+    }
+
+    .unit-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        margin-bottom: 14px;
+    }
+
+    .include-label {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: 700;
+    }
+
+    .include-label input {
+        width: auto;
+    }
+
+    .unit-grid {
+        display: grid;
+        grid-template-columns:
+            110px 1fr 110px 110px;
+        gap: 12px;
+    }
+
+    .form-group {
+        margin-bottom: 14px;
+    }
+
+    .form-group label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 5px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    textarea {
+        min-height: 120px;
+        resize: vertical;
+    }
+
+    .taxa-input {
+        font-family: inherit;
+    }
+
+    .muted {
+        color: #666;
+        font-size: 13px;
+    }
+
+    .commit-panel {
+        position: sticky;
+        bottom: 0;
+        z-index: 20;
+        padding: 14px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    @media (max-width: 850px) {
+        .unit-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+
+
+<h1>Проверка Semantic Units</h1>
+
+
+<div class="source-card">
+
+    <strong>Источник:</strong>
+    {{ source.title }}
+
+    {% if source.year %}
+    ({{ source.year }})
+    {% endif %}
+
+    <br>
+
+    <strong>Primary taxon:</strong>
+    {{ source.primary_taxon or "—" }}
+
+    <br>
+
+    Найдено блоков:
+    <strong>{{ units | length }}</strong>
+
+</div>
+
+
+<div class="toolbar">
+
+    <button
+        type="button"
+        onclick="selectAllUnits()"
+    >
+        Выбрать все
+    </button>
+
+    <button
+        type="button"
+        onclick="deselectAllUnits()"
+    >
+        Снять все
+    </button>
+
+    <span id="selected-count"></span>
+
+</div>
+
+
+<form
+    method="post"
+    action="/semantic-units/import/commit"
+>
+
+    <input
+        type="hidden"
+        name="source_document_id"
+        value="{{ source.id }}"
+    >
+
+    <input
+        type="hidden"
+        name="unit_count"
+        value="{{ units | length }}"
+    >
+
+
+    {% for unit in units %}
+
+    {% set i = loop.index0 %}
+
+    <div class="unit-card">
+
+        <div class="unit-header">
+
+            <label class="include-label">
+
+                <input
+                    class="unit-checkbox"
+                    type="checkbox"
+                    name="unit_{{ i }}_include"
+                    value="1"
+                    checked
+                    onchange="updateSelectedCount()"
+                >
+
+                Добавить
+
+            </label>
+
+            <strong>
+                Unit {{ i + 1 }}
+            </strong>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Taxa</label>
+
+            <input
+                class="taxa-input"
+                type="text"
+                name="unit_{{ i }}_taxa"
+                value="{{ (unit.taxa or []) | join(', ') }}"
+                list="taxon-suggestions"
+                placeholder="Camelus ferus, Camelus bactrianus"
+            >
+
+            <div class="muted">
+                Укажи таксоны, к которым относится именно
+                этот факт. Несколько значений — через запятую.
+            </div>
+
+        </div>
+
+
+        <div class="unit-grid">
+
+            <div class="form-group">
+
+                <label>Position</label>
+
+                <input
+                    type="number"
+                    name="unit_{{ i }}_position"
+                    value="{{ unit.position }}"
+                    min="0"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>Раздел</label>
+
+                <input
+                    type="text"
+                    name="unit_{{ i }}_section_title"
+                    value="{{ unit.section_title }}"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>Страница от</label>
+
+                <input
+                    type="number"
+                    name="unit_{{ i }}_page_start"
+                    value="{{ unit.page_start }}"
+                    min="1"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>Страница до</label>
+
+                <input
+                    type="number"
+                    name="unit_{{ i }}_page_end"
+                    value="{{ unit.page_end }}"
+                    min="1"
+                >
+
+            </div>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Текст</label>
+
+            <textarea
+                name="unit_{{ i }}_text"
+                required
+            >{{ unit.text }}</textarea>
+
+        </div>
+
+    </div>
+
+    {% endfor %}
+
+
+    <div class="commit-panel">
+
+        <span id="selected-count-bottom"></span>
+
+        <button type="submit">
+            Добавить выбранные
+        </button>
+
+    </div>
+
+</form>
+
+
+<datalist id="taxon-suggestions">
+    {% for taxon in taxon_suggestions %}
+    <option value="{{ taxon }}"></option>
+    {% endfor %}
+</datalist>
+
+
+<script>
+function getCheckboxes() {
+    return document.querySelectorAll(
+        ".unit-checkbox"
+    );
+}
+
+
+function selectAllUnits() {
+    getCheckboxes().forEach(
+        checkbox => {
+            checkbox.checked = true;
+        }
+    );
+
+    updateSelectedCount();
+}
+
+
+function deselectAllUnits() {
+    getCheckboxes().forEach(
+        checkbox => {
+            checkbox.checked = false;
+        }
+    );
+
+    updateSelectedCount();
+}
+
+
+function updateSelectedCount() {
+    const checkboxes = getCheckboxes();
+
+    const selected = Array.from(
+        checkboxes
+    ).filter(
+        checkbox => checkbox.checked
+    ).length;
+
+    const text =
+        `Выбрано ${selected} из ${checkboxes.length}`;
+
+    document.getElementById(
+        "selected-count"
+    ).textContent = text;
+
+    document.getElementById(
+        "selected-count-bottom"
+    ).textContent = text;
+}
+
+
+updateSelectedCount();
+</script>
+
+{% endblock %}

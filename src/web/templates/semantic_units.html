@@ -1,0 +1,439 @@
+{% extends "base.html" %}
+
+{% block title %}
+Semantic Units
+{% endblock %}
+
+{% block content %}
+
+<style>
+    .card {
+        background: #fff;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        padding: 20px;
+        margin-bottom: 28px;
+    }
+
+    .success {
+        background: #dcf6df;
+        border: 1px solid #9bd4a2;
+        padding: 14px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        white-space: pre-wrap;
+    }
+
+    .error {
+        background: #fde2e2;
+        border: 1px solid #e9a1a1;
+        padding: 14px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        white-space: pre-wrap;
+    }
+
+    .table-wrapper {
+        overflow-x: auto;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th,
+    td {
+        padding: 11px 12px;
+        border-bottom: 1px solid #e6e6e6;
+        text-align: left;
+        vertical-align: top;
+    }
+
+    th {
+        background: #f7f7f7;
+    }
+
+    .count {
+        text-align: right;
+        font-weight: 700;
+    }
+
+    .zero {
+        color: #999;
+    }
+
+    .form-group {
+        margin-bottom: 16px;
+    }
+
+    .form-group label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 6px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .manual-grid {
+        display: grid;
+        grid-template-columns:
+            120px 1fr 120px 120px;
+        gap: 15px;
+    }
+
+    textarea {
+        min-height: 150px;
+        resize: vertical;
+    }
+
+    .muted {
+        color: #666;
+        font-size: 14px;
+    }
+
+    .review-link {
+        white-space: nowrap;
+    }
+
+    @media (max-width: 850px) {
+        .manual-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+
+<h1>Semantic Units</h1>
+
+{% if success %}
+<div class="success">
+    {{ success }}
+</div>
+{% endif %}
+
+{% if error %}
+<div class="error">
+    {{ error }}
+</div>
+{% endif %}
+
+
+<div class="card">
+
+    <h2>Статистика по источникам</h2>
+
+    <p>
+        Всего Semantic Units:
+        <strong>{{ total_units }}</strong>
+    </p>
+
+    <div class="table-wrapper">
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Источник</th>
+                    <th>Основной таксон</th>
+                    <th>Год</th>
+                    <th>Semantic Units</th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                {% for document in documents %}
+
+                {% set count = unit_counts.get(
+                    document.id,
+                    0
+                ) %}
+
+                <tr>
+                    <td>
+                        <strong>
+                            {{ document.title }}
+                        </strong>
+                    </td>
+
+                    <td>
+                        {{ document.primary_taxon or "—" }}
+                    </td>
+
+                    <td>
+                        {{ document.year or "—" }}
+                    </td>
+
+                    <td class="count {% if count == 0 %}zero{% endif %}">
+                        {{ count }}
+                    </td>
+
+                    <td class="review-link">
+                        {% if count > 0 %}
+                        <a
+                            href="/semantic-units/source/{{ document.id }}"
+                        >
+                            Проверить taxa
+                        </a>
+                        {% endif %}
+                    </td>
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+        </table>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>Импорт из JSON</h2>
+
+    <p class="muted">
+        JSON может содержать поле
+        <code>taxa</code> как массив строк.
+        Если поле taxa отсутствует, на этапе
+        предпросмотра будет подставлен
+        <code>primary_taxon</code> выбранного
+        источника. Если в JSON явно указано
+        <code>"taxa": []</code>, список останется пустым.
+    </p>
+
+    {% if documents %}
+
+    <form
+        method="post"
+        action="/semantic-units/import/preview"
+        enctype="multipart/form-data"
+    >
+
+        <div class="form-group">
+            <label>Источник</label>
+
+            <select
+                name="source_document_id"
+                required
+            >
+                {% for document in documents %}
+                <option value="{{ document.id }}">
+                    {{ document.title }}
+                    {% if document.year %}
+                    ({{ document.year }})
+                    {% endif %}
+                    — {{ document.primary_taxon or "без primary_taxon" }}
+                </option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>JSON-файл</label>
+
+            <input
+                type="file"
+                name="json_file"
+                accept=".json,application/json"
+                required
+            >
+        </div>
+
+        <button type="submit">
+            Загрузить и проверить
+        </button>
+
+    </form>
+
+    {% else %}
+
+    <p>Сначала добавьте источник.</p>
+
+    {% endif %}
+
+</div>
+
+
+<div class="card">
+
+    <h2>Добавить вручную</h2>
+
+    {% if documents %}
+
+    <form
+        method="post"
+        action="/semantic-units"
+    >
+
+        <div class="form-group">
+
+            <label>Источник</label>
+
+            <select
+                name="source_document_id"
+                id="manual-source"
+                required
+            >
+                {% for document in documents %}
+                <option
+                    value="{{ document.id }}"
+                    data-primary-taxon="{{ document.primary_taxon or '' }}"
+                >
+                    {{ document.title }}
+                    {% if document.year %}
+                    ({{ document.year }})
+                    {% endif %}
+                </option>
+                {% endfor %}
+            </select>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Taxa</label>
+
+            <input
+                type="text"
+                name="taxa"
+                id="manual-taxa"
+                list="taxon-suggestions"
+                placeholder="Camelus ferus, Camelus bactrianus"
+            >
+
+            <div class="muted">
+                Несколько таксонов разделяй запятыми.
+                Поле можно оставить пустым только если
+                unit действительно не относится
+                к конкретному таксону.
+            </div>
+
+        </div>
+
+
+        <div class="manual-grid">
+
+            <div class="form-group">
+                <label>Позиция</label>
+
+                <input
+                    type="number"
+                    name="position"
+                    min="0"
+                    value="0"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label>Раздел</label>
+
+                <input
+                    type="text"
+                    name="section_title"
+                >
+            </div>
+
+            <div class="form-group">
+                <label>Страница от</label>
+
+                <input
+                    type="number"
+                    name="page_start"
+                    min="1"
+                >
+            </div>
+
+            <div class="form-group">
+                <label>Страница до</label>
+
+                <input
+                    type="number"
+                    name="page_end"
+                    min="1"
+                >
+            </div>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Semantic Unit</label>
+
+            <textarea
+                name="text"
+                required
+            ></textarea>
+
+        </div>
+
+
+        <button type="submit">
+            Добавить Semantic Unit
+        </button>
+
+    </form>
+
+    {% else %}
+
+    <p>Сначала добавьте источник.</p>
+
+    {% endif %}
+
+</div>
+
+
+<datalist id="taxon-suggestions">
+    {% for taxon in taxon_suggestions %}
+    <option value="{{ taxon }}"></option>
+    {% endfor %}
+</datalist>
+
+
+<script>
+const manualSource = document.getElementById(
+    "manual-source"
+);
+
+const manualTaxa = document.getElementById(
+    "manual-taxa"
+);
+
+function setDefaultTaxon() {
+    if (!manualSource || !manualTaxa) {
+        return;
+    }
+
+    if (manualTaxa.value.trim() !== "") {
+        return;
+    }
+
+    const option = manualSource.options[
+        manualSource.selectedIndex
+    ];
+
+    manualTaxa.value =
+        option.dataset.primaryTaxon || "";
+}
+
+manualSource?.addEventListener(
+    "change",
+    () => {
+        manualTaxa.value = "";
+        setDefaultTaxon();
+    }
+);
+
+setDefaultTaxon();
+</script>
+
+{% endblock %}

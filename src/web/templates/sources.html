@@ -1,0 +1,363 @@
+{% extends "base.html" %}
+
+{% block title %}
+Источники
+{% endblock %}
+
+{% block content %}
+
+<style>
+    .card {
+        background: #fff;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        padding: 20px;
+        margin-bottom: 28px;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+    }
+
+    .form-group {
+        margin-bottom: 16px;
+    }
+
+    .form-group label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 6px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    textarea {
+        min-height: 260px;
+        resize: vertical;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th,
+    td {
+        padding: 11px 12px;
+        border-bottom: 1px solid #e6e6e6;
+        text-align: left;
+        vertical-align: top;
+    }
+
+    th {
+        background: #f7f7f7;
+    }
+
+    .error {
+        background: #fde2e2;
+        border: 1px solid #e9a1a1;
+        padding: 14px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        white-space: pre-wrap;
+    }
+
+    @media (max-width: 800px) {
+        .grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+
+<h1>Источники</h1>
+
+{% if error %}
+<div class="error">
+    {{ error }}
+</div>
+{% endif %}
+
+<div class="card">
+
+    <h2>Добавить источник</h2>
+
+    <form
+        method="post"
+        action="/sources"
+    >
+
+        <div class="grid">
+
+            <div class="form-group">
+                <label>Тип документа</label>
+
+                <select
+                    name="document_type"
+                    id="document-type"
+                    required
+                >
+                    {% for item in document_types %}
+                    <option value="{{ item.value }}">
+                        {{ item.value }}
+                    </option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Основной таксон</label>
+
+                <input
+                    type="text"
+                    name="primary_taxon"
+                    list="taxon-suggestions"
+                    placeholder="Camelus ferus"
+                    required
+                >
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            <label>Название</label>
+            <input
+                type="text"
+                name="title"
+                required
+            >
+        </div>
+
+        <div class="grid">
+
+            <div class="form-group">
+                <label>Авторы</label>
+                <input
+                    type="text"
+                    name="authors"
+                    placeholder="Автор 1, Автор 2"
+                >
+            </div>
+
+            <div class="form-group">
+                <label>Редакторы</label>
+                <input
+                    type="text"
+                    name="editors"
+                    placeholder="Редактор 1, Редактор 2"
+                >
+            </div>
+
+            <div class="form-group">
+                <label>Год</label>
+                <input
+                    type="number"
+                    name="year"
+                >
+            </div>
+
+            <div class="form-group">
+                <label>Язык</label>
+                <select name="language">
+                    {% for code, label in languages.items() %}
+                    <option value="{{ code }}">
+                        {{ label }}
+                    </option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Тип контейнера</label>
+                <select
+                    name="container_type"
+                    id="container-type"
+                >
+                    <option value="">—</option>
+
+                    {% for item in container_types %}
+                    <option value="{{ item.value }}">
+                        {{ item.value }}
+                    </option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Название контейнера</label>
+                <input
+                    type="text"
+                    name="container_title"
+                >
+            </div>
+
+            <div class="form-group">
+                <label>Издатель</label>
+                <input
+                    type="text"
+                    name="publisher"
+                >
+            </div>
+
+            <div class="form-group">
+                <label>Номер главы</label>
+                <input
+                    type="text"
+                    name="chapter_number"
+                >
+            </div>
+
+            <div class="form-group">
+                <label>Страница от</label>
+                <input
+                    type="number"
+                    name="page_start"
+                    min="1"
+                >
+            </div>
+
+            <div class="form-group">
+                <label>Страница до</label>
+                <input
+                    type="number"
+                    name="page_end"
+                    min="1"
+                >
+            </div>
+
+            <div class="form-group">
+                <label>DOI</label>
+                <input
+                    type="text"
+                    name="doi"
+                >
+            </div>
+
+            <div class="form-group">
+                <label>ISBN</label>
+                <input
+                    type="text"
+                    name="isbn"
+                >
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            <label>URL</label>
+            <input
+                type="text"
+                name="url"
+            >
+        </div>
+
+        <div class="form-group">
+            <label>Полный текст</label>
+            <textarea
+                name="full_text"
+                required
+            ></textarea>
+        </div>
+
+        <button type="submit">
+            Добавить источник
+        </button>
+
+    </form>
+
+</div>
+
+
+<div class="card">
+
+    <h2>Добавленные источники</h2>
+
+    {% if documents %}
+
+    <table>
+        <thead>
+            <tr>
+                <th>Название</th>
+                <th>Основной таксон</th>
+                <th>Тип</th>
+                <th>Год</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for document in documents %}
+            <tr>
+                <td>
+                    {{ document.title }}
+                </td>
+
+                <td>
+                    {{ document.primary_taxon or "—" }}
+                </td>
+
+                <td>
+                    {{ document.document_type.value }}
+                </td>
+
+                <td>
+                    {{ document.year or "—" }}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    {% else %}
+
+    <p>Источники пока не добавлены.</p>
+
+    {% endif %}
+
+</div>
+
+
+<datalist id="taxon-suggestions">
+    {% for taxon in taxon_suggestions %}
+    <option value="{{ taxon }}"></option>
+    {% endfor %}
+</datalist>
+
+
+<script>
+const documentType = document.getElementById(
+    "document-type"
+);
+
+const containerType = document.getElementById(
+    "container-type"
+);
+
+function updateContainerType() {
+    if (!documentType || !containerType) {
+        return;
+    }
+
+    if (documentType.value === "book") {
+        containerType.value = "";
+    }
+
+    if (documentType.value === "book_chapter") {
+        containerType.value = "book";
+    }
+}
+
+documentType?.addEventListener(
+    "change",
+    updateContainerType
+);
+
+updateContainerType();
+</script>
+
+{% endblock %}

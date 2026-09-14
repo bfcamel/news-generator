@@ -1,0 +1,238 @@
+{% extends "base.html" %}
+
+{% block title %}
+Taxa Semantic Units
+{% endblock %}
+
+{% block content %}
+
+<style>
+    .header-card,
+    .unit-card,
+    .save-panel {
+        background: #fff;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+    }
+
+    .header-card {
+        padding: 18px;
+        margin-bottom: 18px;
+    }
+
+    .success {
+        background: #dcf6df;
+        border: 1px solid #9bd4a2;
+        padding: 14px;
+        border-radius: 8px;
+        margin-bottom: 18px;
+    }
+
+    .error {
+        background: #fde2e2;
+        border: 1px solid #e9a1a1;
+        padding: 14px;
+        border-radius: 8px;
+        margin-bottom: 18px;
+        white-space: pre-wrap;
+    }
+
+    .unit-card {
+        padding: 16px;
+        margin-bottom: 14px;
+    }
+
+    .unit-meta {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+        color: #666;
+        font-size: 13px;
+        margin-bottom: 10px;
+    }
+
+    .unit-text {
+        line-height: 1.5;
+        margin-bottom: 12px;
+    }
+
+    .taxa-row label {
+        display: block;
+        font-weight: 700;
+        margin-bottom: 5px;
+    }
+
+    .taxa-row input {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .empty-taxa {
+        border-color: #d99;
+        background: #fff8f8;
+    }
+
+    .save-panel {
+        position: sticky;
+        bottom: 0;
+        z-index: 20;
+        padding: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .muted {
+        color: #666;
+        font-size: 13px;
+    }
+</style>
+
+
+<p>
+    <a href="/semantic-units">
+        ← Назад к Semantic Units
+    </a>
+</p>
+
+
+<h1>Проверка taxa</h1>
+
+
+{% if success %}
+<div class="success">
+    {{ success }}
+</div>
+{% endif %}
+
+{% if error %}
+<div class="error">
+    {{ error }}
+</div>
+{% endif %}
+
+
+<div class="header-card">
+
+    <strong>Источник:</strong>
+    {{ source.title }}
+
+    <br>
+
+    <strong>Primary taxon:</strong>
+    {{ source.primary_taxon or "—" }}
+
+    <br>
+
+    <strong>Semantic Units:</strong>
+    {{ units | length }}
+
+    <p class="muted">
+        Taxa описывает область применимости конкретного
+        semantic unit, а не просто основной вид статьи.
+        Поэтому сравнительный факт может иметь несколько
+        таксонов, а общий факт — Camelus или Camelidae.
+    </p>
+
+</div>
+
+
+<form
+    method="post"
+    action="/semantic-units/source/{{ source.id }}/taxa"
+>
+
+    <input
+        type="hidden"
+        name="unit_count"
+        value="{{ units | length }}"
+    >
+
+
+    {% for unit in units %}
+
+    {% set i = loop.index0 %}
+
+    <div class="unit-card">
+
+        <input
+            type="hidden"
+            name="unit_{{ i }}_id"
+            value="{{ unit.id }}"
+        >
+
+        <div class="unit-meta">
+
+            <span>
+                Position:
+                <strong>{{ unit.position }}</strong>
+            </span>
+
+            <span>
+                Раздел:
+                <strong>{{ unit.section_title or "—" }}</strong>
+            </span>
+
+            {% if unit.page_start %}
+            <span>
+                Страница:
+                <strong>
+                    {{ unit.page_start }}
+                    {% if unit.page_end and unit.page_end != unit.page_start %}
+                    –{{ unit.page_end }}
+                    {% endif %}
+                </strong>
+            </span>
+            {% endif %}
+
+        </div>
+
+
+        <div class="unit-text">
+            {{ unit.text }}
+        </div>
+
+
+        <div class="taxa-row">
+
+            <label>Taxa</label>
+
+            <input
+                type="text"
+                name="unit_{{ i }}_taxa"
+                value="{{ unit.taxa | join(', ') }}"
+                list="taxon-suggestions"
+                class="{% if not unit.taxa %}empty-taxa{% endif %}"
+                placeholder="Camelus ferus, Camelus bactrianus"
+            >
+
+        </div>
+
+    </div>
+
+    {% endfor %}
+
+
+    <div class="save-panel">
+
+        <span>
+            Изменения применяются только к полю
+            <code>taxa</code>.
+        </span>
+
+        <button type="submit">
+            Сохранить taxa
+        </button>
+
+    </div>
+
+</form>
+
+
+<datalist id="taxon-suggestions">
+    {% for taxon in taxon_suggestions %}
+    <option value="{{ taxon }}"></option>
+    {% endfor %}
+</datalist>
+
+{% endblock %}
