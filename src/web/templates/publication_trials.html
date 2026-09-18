@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+
+{% block title %}
+Тест генерации публикаций
+{% endblock %}
+
+{% block content %}
+
+<h1>Тест генерации публикаций</h1>
+
+<div class="card">
+    <h2>Сгенерировать следующий пост</h2>
+
+    <p class="muted">
+        Система сама выбирает тематически связанную группу
+        Semantic Units по embeddings. После этого выполняется
+        ровно один запрос к YandexGPT: модель определяет название
+        темы и пишет пост только по выбранным блокам.
+    </p>
+
+    <p class="muted">
+        На тестовом этапе публикации и решения сохраняются
+        локально в JSON-файлах. Elasticsearch не изменяется.
+    </p>
+
+    <form
+        method="post"
+        action="/publications/generate"
+    >
+        <button type="submit">
+            Сгенерировать следующий пост
+        </button>
+    </form>
+</div>
+
+
+{% if error %}
+<div class="error">
+    {{ error }}
+</div>
+{% endif %}
+
+
+<div class="card">
+    <h2>История тестов</h2>
+
+    {% if not trials %}
+        <p class="muted">
+            Пока нет сгенерированных публикаций.
+        </p>
+    {% else %}
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Дата</th>
+                        <th>Тема</th>
+                        <th>Заголовок</th>
+                        <th>Блоков</th>
+                        <th>Решение</th>
+                        <th></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                {% for trial in trials %}
+                    <tr>
+                        <td>
+                            {{ trial.created_at.strftime("%Y-%m-%d %H:%M") }}
+                        </td>
+
+                        <td>
+                            {{ trial.topic }}
+                        </td>
+
+                        <td>
+                            {{ trial.title }}
+                        </td>
+
+                        <td>
+                            {{ trial.used_semantic_unit_ids | length }}
+                            /
+                            {{ trial.selected_semantic_unit_ids | length }}
+                        </td>
+
+                        <td>
+                            {% if trial.decision.value == "approved" %}
+                                Публиковать
+                            {% elif trial.decision.value == "rejected" %}
+                                Не публиковать
+                            {% else %}
+                                Не решено
+                            {% endif %}
+                        </td>
+
+                        <td>
+                            <a href="/publications/{{ trial.id }}">
+                                Открыть
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+    {% endif %}
+</div>
+
+{% endblock %}
