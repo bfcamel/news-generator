@@ -40,7 +40,7 @@ class TopicDiscoveryService:
         es: AsyncElasticsearch,
         source_repository: SourceDocumentRepository,
         trial_store: FilePublicationTrialStore,
-        seed_count: int = 14,
+        seed_count: int = 24,
         neighbor_count: int = 12,
         max_evidence: int = 10,
         min_similarity: float = 0.72,
@@ -117,6 +117,37 @@ class TopicDiscoveryService:
                 )
             ):
                 best = result
+
+        if best is None and excluded_ids:
+            # Recent-history exclusion can make otherwise good
+            # neighborhoods too sparse. Retry once without exclusions.
+            seeds = await self._load_seed_candidates(
+                excluded_ids=set(),
+            )
+
+            for seed in seeds:
+                result = await self._build_cluster(
+                    seed=seed,
+                    excluded_ids=set(),
+                    source_map=source_map,
+                )
+
+                if result is None:
+                    continue
+
+                if (
+                    best is None
+                    or (
+                        result
+                        .metrics
+                        .selection_score
+                        >
+                        best
+                        .metrics
+                        .selection_score
+                    )
+                ):
+                    best = result
 
         if best is None:
             raise RuntimeError(
