@@ -18,8 +18,8 @@ from src.domain.publication_trial import (
     PublicationTrial,
     PublicationTrialDecision,
 )
-from src.infrastructure.llm.yandex_gpt_post_generator import (
-    YandexGPTPostGenerator,
+from src.infrastructure.llm.deepseek_post_generator import (
+    DeepSeekPostGenerator,
 )
 from src.repositories.publication_trial_store import (
     FilePublicationTrialStore,
@@ -33,7 +33,7 @@ def create_publication_trials_router(
     *,
     templates: Jinja2Templates,
     discovery_service: TopicDiscoveryService,
-    post_generator: YandexGPTPostGenerator,
+    post_generator: DeepSeekPostGenerator,
     trial_store: FilePublicationTrialStore,
 ) -> APIRouter:
     router = APIRouter()
