@@ -27,9 +27,9 @@ from src.infrastructure.embeddings import (
     EmbeddingSettings,
     YandexEmbeddingClient,
 )
-from src.infrastructure.llm.yandex_gpt_post_generator import (
-    YandexGPTPostGenerator,
-    YandexGPTPostSettings,
+from src.infrastructure.llm.deepseek_post_generator import (
+    DeepSeekPostGenerator,
+    DeepSeekPostSettings,
 )
 from src.repositories.embedding_repository import EmbeddingRepository
 from src.repositories.semantic_unit_repository import SemanticUnitRepository
@@ -274,11 +274,11 @@ topic_discovery_service = (
 )
 
 post_generator_settings = (
-    YandexGPTPostSettings.from_env()
+    DeepSeekPostSettings.from_env()
 )
 
 post_generator = (
-    YandexGPTPostGenerator(
+    DeepSeekPostGenerator(
         post_generator_settings
     )
 )
