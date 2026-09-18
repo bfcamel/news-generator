@@ -6,7 +6,7 @@
 <style>
   .at-grid {
     display: grid;
-    grid-template-columns: minmax(0, 420px) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 360px) minmax(0, 1fr);
     gap: 24px;
     align-items: start;
   }
@@ -24,36 +24,10 @@
     margin-top: 0;
   }
 
-  .at-form-row {
-    margin-bottom: 14px;
-  }
-
-  .at-form-row label {
-    display: block;
-    font-weight: 700;
-    margin-bottom: 6px;
-  }
-
-  .at-form-row input,
-  .at-form-row textarea,
-  .at-form-row select {
-    width: 100%;
-    box-sizing: border-box;
-    padding: 10px 12px;
-    border: 1px solid #cbd5d8;
-    border-radius: 10px;
-    background: #fff;
-    font: inherit;
-  }
-
-  .at-form-row textarea {
-    min-height: 120px;
-    resize: vertical;
-  }
-
   .at-help {
     color: #607177;
     font-size: 13px;
+    line-height: 1.5;
     margin-top: 5px;
   }
 
@@ -62,19 +36,35 @@
     align-items: center;
     justify-content: center;
     gap: 6px;
+
     border: 0;
     border-radius: 10px;
+
     padding: 10px 15px;
+
     background: #123640;
     color: #fff;
+
     font: inherit;
     font-weight: 700;
+
     cursor: pointer;
+    text-decoration: none;
+  }
+
+  .at-button:hover {
+    background: #18434e;
+    color: #fff;
     text-decoration: none;
   }
 
   .at-button.secondary {
     background: #eef4f5;
+    color: #123640;
+  }
+
+  .at-button.secondary:hover {
+    background: #dfeaec;
     color: #123640;
   }
 
@@ -137,6 +127,44 @@
     line-height: 1.45;
   }
 
+  .at-workflow {
+    margin: 18px 0;
+    padding: 14px;
+
+    background: #f5f8f8;
+
+    border: 1px solid #e1eaec;
+    border-radius: 12px;
+
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .at-workflow-step {
+    display: block;
+  }
+
+  .at-workflow-arrow {
+    display: block;
+    color: #8a999e;
+    line-height: 1.2;
+  }
+
+  .at-notice {
+    margin-top: 16px;
+
+    padding: 12px 14px;
+
+    border-left: 3px solid #8dd4d3;
+
+    background: #f7fbfb;
+
+    font-size: 13px;
+    line-height: 1.55;
+
+    color: #52656b;
+  }
+
   @media (max-width: 900px) {
     .at-grid {
       grid-template-columns: 1fr;
@@ -145,178 +173,264 @@
 </style>
 {% endblock %}
 
+
 {% block content %}
-<div style="display:flex; justify-content:space-between; gap:16px; align-items:flex-start; margin-bottom:20px;">
+
+<div
+  style="
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    align-items: flex-start;
+    margin-bottom: 20px;
+  "
+>
+
   <div>
-    <h1 style="margin-bottom:6px;">Атомарные тезисы</h1>
+
+    <h1 style="margin-bottom: 6px;">
+      Атомарные тезисы
+    </h1>
+
     <div class="at-help">
-      Тезис сначала получает кандидатов Semantic Unit, затем вы вручную оставляете только реальные подтверждения.
+      Здесь хранятся атомарные научные тезисы,
+      прошедшие ручную проверку.
     </div>
+
   </div>
+
+
   <div>
-    <div class="at-help">Всего тезисов</div>
-    <div class="at-stats">{{ total_theses }}</div>
+
+    <div class="at-help">
+      Всего тезисов
+    </div>
+
+    <div class="at-stats">
+      {{ total_theses }}
+    </div>
+
   </div>
+
 </div>
 
+
 {% if error %}
-  <div class="at-alert error">{{ error }}</div>
+
+  <div class="at-alert error">
+    {{ error }}
+  </div>
+
 {% endif %}
+
 
 {% if success %}
-  <div class="at-alert success">{{ success }}</div>
+
+  <div class="at-alert success">
+    {{ success }}
+  </div>
+
 {% endif %}
 
+
 <div class="at-grid">
+
   <section class="at-card">
-    <h2>Добавить тезис</h2>
 
-    <form method="post" action="/atomic-theses/preview">
-      <div class="at-form-row">
-        <label for="text">Тезис на русском</label>
-        <textarea
-          id="text"
-          name="text"
-          required
-          placeholder="Например: Беременность у дромадера длится около 13 месяцев."
-        ></textarea>
-        <div class="at-help">
-          На этом этапе тезис ещё не сохраняется.
-        </div>
-      </div>
+    <h2>
+      Добавление тезисов
+    </h2>
 
-      <div class="at-form-row">
-        <label for="taxon_primary">Основной таксон</label>
-        <select
-          id="taxon_primary"
-          name="taxa"
-        >
-          <option value="">
-            Не выбран
-          </option>
+    <p class="at-help">
+      Атомарные тезисы больше не создаются вручную
+      непосредственно на этой странице.
+    </p>
 
-          {% for taxon in taxon_suggestions %}
-            <option value="{{ taxon }}">
-              {{ taxon }}
-            </option>
-          {% endfor %}
-        </select>
+    <div class="at-workflow">
 
-        <div class="at-help">
-          Выберите готовый таксон из базы.
-        </div>
-      </div>
+      <span class="at-workflow-step">
+        Semantic Unit
+      </span>
 
-      <div class="at-form-row">
-        <label for="taxon_secondary">
-          Дополнительный таксон
-        </label>
+      <span class="at-workflow-arrow">
+        ↓
+      </span>
 
-        <select
-          id="taxon_secondary"
-          name="taxa"
-        >
-          <option value="">
-            Нет
-          </option>
+      <span class="at-workflow-step">
+        YandexGPT 5.1 Pro
+      </span>
 
-          {% for taxon in taxon_suggestions %}
-            <option value="{{ taxon }}">
-              {{ taxon }}
-            </option>
-          {% endfor %}
-        </select>
+      <span class="at-workflow-arrow">
+        ↓
+      </span>
 
-        <div class="at-help">
-          Нужен для тезисов, которые относятся сразу
-          к нескольким видам. Если не нужен — оставьте «Нет».
-        </div>
-      </div>
+      <span class="at-workflow-step">
+        Кандидат атомарного тезиса
+      </span>
 
-      <div class="at-form-row">
-        <label for="taxon_scope">Таксономический scope</label>
-        <select id="taxon_scope" name="taxon_scope">
-          {% for scope in taxon_scopes %}
-            <option
-              value="{{ scope.value }}"
-              {% if scope.value == "unspecified" %}selected{% endif %}
-            >
-              {{ taxon_scope_labels[scope] }}
-            </option>
-          {% endfor %}
-        </select>
-      </div>
+      <span class="at-workflow-arrow">
+        ↓
+      </span>
 
-      <div class="at-form-row">
-        <label for="candidate_count">Сколько Semantic Unit показать</label>
-        <input
-          id="candidate_count"
-          name="candidate_count"
-          type="number"
-          min="5"
-          max="50"
-          value="20"
-        >
-        <div class="at-help">
-          Они подбираются по embeddings. Сходство — только способ найти кандидатов, а не доказательство поддержки.
-        </div>
-      </div>
+      <span class="at-workflow-step">
+        Ручная проверка
+      </span>
 
-      <button class="at-button" type="submit">
-        Найти подтверждения
-      </button>
-    </form>
+      <span class="at-workflow-arrow">
+        ↓
+      </span>
+
+      <span class="at-workflow-step">
+        AtomicThesis
+      </span>
+
+      <span class="at-workflow-arrow">
+        ↓
+      </span>
+
+      <span class="at-workflow-step">
+        Query + Doc embeddings
+      </span>
+
+    </div>
+
+    <p class="at-help">
+      YandexGPT извлекает из каждого Semantic Unit
+      от нуля до нескольких кандидатов.
+      Перед сохранением в базу каждый кандидат
+      проверяется вручную.
+    </p>
+
+    <div style="margin-top: 18px;">
+
+      <a
+        class="at-button"
+        href="/atomic-thesis-candidates"
+      >
+        Перейти к кандидатам
+      </a>
+
+    </div>
+
+    <div class="at-notice">
+      Embeddings для кандидатов не создаются.
+      Они генерируются только после ручного одобрения
+      и создания финального AtomicThesis.
+    </div>
+
   </section>
 
+
   <section class="at-card">
-    <h2>Существующие тезисы</h2>
+
+    <h2>
+      Существующие тезисы
+    </h2>
 
     {% if not rows %}
-      <p class="at-help">Тезисов пока нет.</p>
+
+      <p class="at-help">
+        Тезисов пока нет.
+      </p>
+
     {% else %}
+
       <div class="at-table-wrap">
+
         <table class="at-table">
+
           <thead>
+
             <tr>
-              <th>Тезис</th>
-              <th>Статус</th>
-              <th>Semantic Units</th>
-              <th>Источники</th>
+
+              <th>
+                Тезис
+              </th>
+
+              <th>
+                Статус
+              </th>
+
+              <th>
+                Semantic Units
+              </th>
+
+              <th>
+                Источники
+              </th>
+
               <th></th>
+
             </tr>
+
           </thead>
+
+
           <tbody>
+
             {% for row in rows %}
+
               <tr>
+
                 <td class="at-thesis-text">
+
                   {{ row.thesis.text }}
+
                   {% if row.thesis.taxa %}
+
                     <div class="at-help">
                       {{ row.thesis.taxa | join(", ") }}
                     </div>
+
                   {% endif %}
+
                 </td>
+
+
                 <td>
+
                   <span class="at-status">
                     {{ thesis_status_labels[row.thesis.status] }}
                   </span>
+
                 </td>
-                <td>{{ row.semantic_unit_count }}</td>
-                <td>{{ row.source_document_count }}</td>
+
+
                 <td>
+                  {{ row.semantic_unit_count }}
+                </td>
+
+
+                <td>
+                  {{ row.source_document_count }}
+                </td>
+
+
+                <td>
+
                   <a
                     class="at-button secondary"
                     href="/atomic-theses/{{ row.thesis.id }}"
                   >
                     Открыть
                   </a>
+
                 </td>
+
               </tr>
+
             {% endfor %}
+
           </tbody>
+
         </table>
+
       </div>
+
     {% endif %}
+
   </section>
+
 </div>
+
 {% endblock %}

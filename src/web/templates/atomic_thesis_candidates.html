@@ -1,0 +1,202 @@
+{% extends "base.html" %}
+
+{% block title %}
+Кандидаты тезисов
+{% endblock %}
+
+{% block content %}
+
+<h1>Кандидаты атомарных тезисов</h1>
+
+<div class="card">
+
+    <h2>Обработать Semantic Units</h2>
+
+    <p class="muted">
+        YandexGPT получает по одному Semantic Unit.
+        Здесь создаются только кандидаты.
+        Embeddings на этом этапе не генерируются.
+    </p>
+
+    <form
+        method="post"
+        action="/atomic-thesis-candidates/generate"
+    >
+
+        <label>
+            <strong>Источник</strong>
+        </label>
+
+        <select
+            name="source_document_id"
+            required
+        >
+            {% for document in documents %}
+                <option
+                    value="{{ document.id }}"
+                    {% if source_filter == document.id %}
+                    selected
+                    {% endif %}
+                >
+                    {{ document.title }}
+                    {% if document.year %}
+                    ({{ document.year }})
+                    {% endif %}
+                </option>
+            {% endfor %}
+        </select>
+
+        <div style="height: 14px;"></div>
+
+        <label>
+            <strong>
+                Сколько необработанных
+                Semantic Units взять
+            </strong>
+        </label>
+
+        <input
+            type="number"
+            name="limit"
+            min="1"
+            max="25"
+            value="10"
+        >
+
+        <div style="height: 16px;"></div>
+
+        <button type="submit">
+            Сгенерировать кандидатов
+        </button>
+
+    </form>
+
+</div>
+
+
+{% if generated is not none %}
+
+<div class="success">
+    Обработано Semantic Units:
+    {{ units_processed }}.
+
+    Создано кандидатов:
+    {{ generated }}.
+
+    Ошибок:
+    {{ failed }}.
+</div>
+
+{% endif %}
+
+
+<div class="card">
+
+    <strong>
+        Ожидают ручной проверки:
+        {{ pending_count }}
+    </strong>
+
+    <div style="margin-top: 12px;">
+
+        <a
+            href="/atomic-thesis-candidates?status=pending_review"
+        >
+            На проверке
+        </a>
+
+        ·
+
+        <a
+            href="/atomic-thesis-candidates?status=approved"
+        >
+            Одобрены
+        </a>
+
+        ·
+
+        <a
+            href="/atomic-thesis-candidates?status=rejected"
+        >
+            Отклонены
+        </a>
+
+    </div>
+
+</div>
+
+
+{% if not rows %}
+
+<div class="card">
+    Кандидатов с таким статусом нет.
+</div>
+
+{% endif %}
+
+
+{% for row in rows %}
+
+<div class="card">
+
+    <div class="muted">
+        {{ row.candidate.id }}
+        · {{ row.candidate.status.value }}
+    </div>
+
+    <h2 style="margin-top: 10px;">
+        {{ row.candidate.text }}
+    </h2>
+
+    {% if row.source %}
+        <p>
+            <strong>
+                {{ row.source.title }}
+            </strong>
+
+            {% if row.source.year %}
+                ({{ row.source.year }})
+            {% endif %}
+        </p>
+    {% endif %}
+
+    {% if row.unit %}
+
+        <p class="muted">
+            Semantic Unit:
+            {{ row.unit.id }}
+
+            {% if row.unit.section_title %}
+                · {{ row.unit.section_title }}
+            {% endif %}
+        </p>
+
+        <p>
+            {{ row.unit.text }}
+        </p>
+
+    {% endif %}
+
+    <p class="muted">
+        Taxa:
+        {% if row.candidate.taxa %}
+            {{ row.candidate.taxa | join(", ") }}
+        {% else %}
+            не указаны
+        {% endif %}
+
+        · scope:
+        {{ row.candidate.taxon_scope.value }}
+    </p>
+
+    <a
+        href="/atomic-thesis-candidates/{{ row.candidate.id }}"
+    >
+        Проверить
+    </a>
+
+</div>
+
+{% endfor %}
+
+{% endblock %}

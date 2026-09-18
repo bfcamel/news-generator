@@ -47,6 +47,30 @@ from src.repositories.source_document_repository import SourceDocumentRepository
 from src.services.atomic_thesis_service import AtomicThesisService
 from src.services.semantic_unit_service import SemanticUnitService
 
+from src.infrastructure.elasticsearch.atomic_thesis_candidates_index import (
+    ensure_atomic_thesis_candidate_indices,
+)
+
+from src.infrastructure.llm.yandex_gpt_thesis_extractor import (
+    YandexGPTSettings,
+    YandexGPTThesisExtractor,
+)
+
+from src.repositories.atomic_thesis_candidate_repository import (
+    AtomicThesisCandidateRepository,
+)
+
+from src.services.atomic_thesis_candidate_service import (
+    AtomicThesisCandidateService,
+)
+
+from src.services.atomic_thesis_moderation_service import (
+    AtomicThesisModerationService,
+)
+
+from src.web.atomic_thesis_candidates_routes import (
+    create_atomic_thesis_candidates_router,
+)
 
 BASE_DIR = Path(__file__).resolve().parent
 
@@ -278,6 +302,50 @@ atomic_thesis_service = (
     )
 )
 
+yandex_gpt_settings = (
+    YandexGPTSettings.from_env()
+)
+
+yandex_gpt_thesis_extractor = (
+    YandexGPTThesisExtractor(
+        yandex_gpt_settings
+    )
+)
+
+atomic_thesis_candidate_repository = (
+    AtomicThesisCandidateRepository(
+        es
+    )
+)
+
+atomic_thesis_candidate_service = (
+    AtomicThesisCandidateService(
+        repository=(
+            atomic_thesis_candidate_repository
+        ),
+        source_repository=(
+            source_repository
+        ),
+        extractor=(
+            yandex_gpt_thesis_extractor
+        ),
+    )
+)
+
+atomic_thesis_moderation_service = (
+    AtomicThesisModerationService(
+        candidate_repository=(
+            atomic_thesis_candidate_repository
+        ),
+        atomic_thesis_repository=(
+            atomic_thesis_repository
+        ),
+        atomic_thesis_service=(
+            atomic_thesis_service
+        ),
+    )
+)
+
 
 LANGUAGES = {
     "ru": "Русский",
@@ -330,6 +398,7 @@ async def lifespan(
     try:
         await ensure_indices()
         await ensure_atomic_theses_index()
+        await ensure_atomic_thesis_candidate_indices()
 
         logger.info(
             "Elasticsearch indices are ready"
@@ -349,6 +418,7 @@ async def lifespan(
         )
 
         try:
+            await yandex_gpt_thesis_extractor.close()
             await embedding_client.close()
 
             logger.info(
@@ -366,6 +436,27 @@ async def lifespan(
 app = FastAPI(
     title="News Generator Admin",
     lifespan=lifespan,
+)
+
+app.include_router(
+    create_atomic_thesis_candidates_router(
+        templates=templates,
+        candidate_repository=(
+            atomic_thesis_candidate_repository
+        ),
+        candidate_service=(
+            atomic_thesis_candidate_service
+        ),
+        moderation_service=(
+            atomic_thesis_moderation_service
+        ),
+        source_repository=(
+            source_repository
+        ),
+        taxon_suggestions=(
+            TAXON_SUGGESTIONS
+        ),
+    )
 )
 
 
@@ -592,6 +683,10 @@ async def get_semantic_units_by_ids(
     """
     Возвращает SemanticUnit в том же порядке,
     в котором пришли unit_ids.
+
+    Embeddings для отображения страницы тезиса
+    не нужны, поэтому исключаем одновременно
+    doc_embedding и embedding_model.
     """
 
     unique_ids = list(
@@ -606,6 +701,15 @@ async def get_semantic_units_by_ids(
     response = await es.mget(
         index="semantic_units",
         ids=unique_ids,
+
+        # Вектор в Web UI не нужен.
+        # ВАЖНО исключать оба поля одновременно,
+        # иначе SemanticUnit получает embedding_model
+        # без doc_embedding и не проходит validation.
+        source_excludes=[
+            "doc_embedding",
+            "embedding_model",
+        ],
     )
 
     by_id: dict[
@@ -639,7 +743,6 @@ async def get_semantic_units_by_ids(
         for unit_id in unique_ids
         if unit_id in by_id
     ]
-
 
 async def get_source_map() -> dict[
     str,

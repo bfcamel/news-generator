@@ -359,3 +359,65 @@
 2026-09-14 17:56:06,877 | INFO | news_generator.web | Starting News Generator Admin
 2026-09-14 17:56:06,908 | INFO | news_generator.web | Elasticsearch indices are ready
 2026-09-14 17:57:03,595 | INFO | news_generator.web | AtomicThesis preview prepared: text_hash=8a742d8e5e62390a81221c17a185f4f38fc2b54f25e21a14898c415d11a177b0 candidates=20 exact_existing=None
+2026-09-18 12:47:54,446 | INFO | news_generator.web | Starting News Generator Admin
+2026-09-18 12:47:54,664 | INFO | news_generator.web | Elasticsearch indices are ready
+2026-09-18 12:54:43,184 | INFO | news_generator.web | Stopping News Generator Admin
+2026-09-18 12:54:43,194 | INFO | news_generator.web | Yandex embedding client closed
+2026-09-18 12:54:43,194 | INFO | news_generator.web | Elasticsearch connection closed
+2026-09-18 12:54:43,872 | INFO | news_generator.web | Starting News Generator Admin
+2026-09-18 12:54:43,902 | INFO | news_generator.web | Elasticsearch indices are ready
+2026-09-18 12:55:01,385 | INFO | news_generator.web | Stopping News Generator Admin
+2026-09-18 12:55:01,393 | INFO | news_generator.web | Yandex embedding client closed
+2026-09-18 12:55:01,393 | INFO | news_generator.web | Elasticsearch connection closed
+2026-09-18 12:55:02,050 | INFO | news_generator.web | Starting News Generator Admin
+2026-09-18 12:55:02,072 | INFO | news_generator.web | Elasticsearch indices are ready
+2026-09-18 12:58:32,773 | INFO | news_generator.web | Stopping News Generator Admin
+2026-09-18 12:58:32,775 | INFO | news_generator.web | Yandex embedding client closed
+2026-09-18 12:58:32,776 | INFO | news_generator.web | Elasticsearch connection closed
+2026-09-18 12:58:33,440 | INFO | news_generator.web | Starting News Generator Admin
+2026-09-18 12:58:33,467 | INFO | news_generator.web | Elasticsearch indices are ready
+2026-09-18 12:58:53,475 | INFO | news_generator.web | Stopping News Generator Admin
+2026-09-18 12:58:53,482 | INFO | news_generator.web | Yandex embedding client closed
+2026-09-18 12:58:53,482 | INFO | news_generator.web | Elasticsearch connection closed
+2026-09-18 12:58:54,146 | INFO | news_generator.web | Starting News Generator Admin
+2026-09-18 12:58:54,170 | INFO | news_generator.web | Elasticsearch indices are ready
+2026-09-18 12:59:22,265 | INFO | news_generator.web | Stopping News Generator Admin
+2026-09-18 12:59:22,273 | INFO | news_generator.web | Yandex embedding client closed
+2026-09-18 12:59:22,273 | INFO | news_generator.web | Elasticsearch connection closed
+2026-09-18 12:59:22,925 | INFO | news_generator.web | Starting News Generator Admin
+2026-09-18 12:59:22,950 | INFO | news_generator.web | Elasticsearch indices are ready
+2026-09-18 13:00:05,807 | INFO | news_generator.web | Stopping News Generator Admin
+2026-09-18 13:00:05,819 | INFO | news_generator.web | Yandex embedding client closed
+2026-09-18 13:00:05,819 | INFO | news_generator.web | Elasticsearch connection closed
+2026-09-18 13:00:06,489 | INFO | news_generator.web | Starting News Generator Admin
+2026-09-18 13:00:06,509 | INFO | news_generator.web | Elasticsearch indices are ready
+2026-09-18 13:06:24,548 | INFO | news_generator.web | Stopping News Generator Admin
+2026-09-18 13:06:24,549 | INFO | news_generator.web | Yandex embedding client closed
+2026-09-18 13:06:24,549 | INFO | news_generator.web | Elasticsearch connection closed
+2026-09-18 13:06:25,249 | INFO | news_generator.web | Starting News Generator Admin
+2026-09-18 13:06:25,271 | INFO | news_generator.web | Elasticsearch indices are ready
+2026-09-18 13:06:41,342 | INFO | news_generator.web | Stopping News Generator Admin
+2026-09-18 13:06:41,350 | INFO | news_generator.web | Yandex embedding client closed
+2026-09-18 13:06:41,350 | INFO | news_generator.web | Elasticsearch connection closed
+2026-09-18 13:06:42,009 | INFO | news_generator.web | Starting News Generator Admin
+2026-09-18 13:06:42,030 | INFO | news_generator.web | Elasticsearch indices are ready
+2026-09-18 13:09:44,953 | INFO | news_generator.web | Stopping News Generator Admin
+2026-09-18 13:09:44,954 | INFO | news_generator.web | Yandex embedding client closed
+2026-09-18 13:09:44,954 | INFO | news_generator.web | Elasticsearch connection closed
+2026-09-18 13:09:45,833 | INFO | news_generator.web | Starting News Generator Admin
+2026-09-18 13:09:45,858 | INFO | news_generator.web | Elasticsearch indices are ready
+2026-09-18 13:10:13,256 | INFO | news_generator.web | AtomicThesis status updated: id=thesis_fa8b1bb2ed354fab8e8f2383479ffea3 status=pending_review
+2026-09-18 13:10:52,582 | INFO | news_generator.web | AtomicThesis status updated: id=thesis_fa8b1bb2ed354fab8e8f2383479ffea3 status=active
+2026-09-18 13:43:26,211 | INFO | news_generator.web | Stopping News Generator Admin
+2026-09-18 13:43:26,221 | INFO | news_generator.web | Yandex embedding client closed
+2026-09-18 13:43:26,222 | INFO | news_generator.web | Elasticsearch connection closed
+2026-09-18 13:43:26,951 | INFO | news_generator.web | Starting News Generator Admin
+2026-09-18 13:43:26,983 | INFO | news_generator.web | Elasticsearch indices are ready
+2026-09-18 13:47:31,004 | INFO | news_generator.web | AtomicThesis status updated: id=thesis_32f77607746047f99e7c782fea64bb5d status=active
+2026-09-18 13:47:34,447 | INFO | news_generator.web | AtomicThesis status updated: id=thesis_32f77607746047f99e7c782fea64bb5d status=active
+2026-09-18 13:47:36,574 | INFO | news_generator.web | AtomicThesis status updated: id=thesis_32f77607746047f99e7c782fea64bb5d status=active
+2026-09-18 13:47:37,289 | INFO | news_generator.web | AtomicThesis status updated: id=thesis_32f77607746047f99e7c782fea64bb5d status=active
+2026-09-18 13:49:04,189 | INFO | news_generator.web | AtomicThesis status updated: id=thesis_fcb645e0ce7745d6b2f2d1f787d05d07 status=active
+2026-09-18 16:12:25,962 | INFO | news_generator.web | Starting News Generator Admin
+2026-09-18 16:12:26,051 | INFO | news_generator.web | Elasticsearch indices are ready
+2026-09-18 16:14:47,132 | INFO | news_generator.web | AtomicThesis status updated: id=thesis_a4300b1896944f4d9afc6106d1b1f65d status=active
