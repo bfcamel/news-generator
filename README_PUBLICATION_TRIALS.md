@@ -10,11 +10,11 @@ Semantic Units.
 3. It scores candidate groups by semantic similarity, evidence count and
    independent source count.
 4. Recent test groups are temporarily excluded to reduce repetition.
-5. The best evidence group is sent to YandexGPT in one request.
-6. YandexGPT returns:
+5. The best evidence group is sent to DeepSeek V4 Flash in one request.
+6. DeepSeek V4 Flash returns:
    - topic;
    - title;
-   - post text;
+   - 3–5 separate post paragraphs;
    - IDs of Semantic Units actually used in the text.
 7. The result is saved locally as JSON.
 8. In the Web UI the user reviews the post and all selected evidence and marks
@@ -50,15 +50,18 @@ The generation prompt is intentionally stored separately:
 src/prompts/post_generation.txt
 ```
 
-The generator reads this file again for every generation request, so prompt
-changes take effect without moving data or rebuilding Elasticsearch.
+The generator reads this file again for every generation request. The marker
+`{{OUTPUT_JSON_SCHEMA}}` is replaced with the required JSON Schema inside the
+prompt itself; no API-level structured-output schema is sent.
 
 Each trial JSON stores the prompt path and SHA-256 hash used for that exact
 generation.
 
 ## LLM calls
 
-Normal generation uses exactly one YandexGPT request per post candidate.
+Normal generation uses exactly one DeepSeek V4 Flash request per post candidate.
+The model returns 3–5 paragraph strings; the application joins them with blank
+lines after Pydantic validation.
 
 Topic/evidence discovery itself uses Elasticsearch embeddings and does not call
 an LLM.
