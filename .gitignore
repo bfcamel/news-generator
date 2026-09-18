@@ -4,3 +4,4 @@ __pycache__/
 *.py[cod]
 src/web/logs/
 scripts/.embedding_benchmark_cache/
+var/publication_trials/
