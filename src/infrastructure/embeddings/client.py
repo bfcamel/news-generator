@@ -31,11 +31,7 @@ class YandexEmbeddingClient:
 
     Intended use:
         SemanticUnit.text -> embed_doc()
-        AtomicThesis.text -> embed_query()
-
-    AtomicThesis can additionally get embed_doc()
-    when thesis-to-thesis similarity/deduplication
-    is required.
+        Search/topic queries -> embed_query()
     """
 
     def __init__(
