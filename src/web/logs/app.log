@@ -421,3 +421,33 @@
 2026-09-18 16:12:25,962 | INFO | news_generator.web | Starting News Generator Admin
 2026-09-18 16:12:26,051 | INFO | news_generator.web | Elasticsearch indices are ready
 2026-09-18 16:14:47,132 | INFO | news_generator.web | AtomicThesis status updated: id=thesis_a4300b1896944f4d9afc6106d1b1f65d status=active
+2026-09-18 16:47:39,536 | INFO | news_generator.web | Starting News Generator Admin
+2026-09-18 16:47:39,547 | INFO | news_generator.web | Elasticsearch indices are ready
+2026-09-18 17:33:30,972 | INFO | news_generator.web | Stopping News Generator Admin
+2026-09-18 17:33:30,984 | INFO | news_generator.web | Yandex embedding client closed
+2026-09-18 17:33:30,984 | INFO | news_generator.web | Elasticsearch connection closed
+2026-09-18 17:33:41,567 | INFO | news_generator.web | Starting News Generator Admin
+2026-09-18 17:33:41,596 | INFO | news_generator.web | Elasticsearch indices are ready
+2026-09-18 17:36:14,997 | INFO | news_generator.web | Stopping News Generator Admin
+2026-09-18 17:36:15,007 | INFO | news_generator.web | Yandex clients closed
+2026-09-18 17:36:15,007 | INFO | news_generator.web | Elasticsearch connection closed
+2026-09-18 17:36:15,918 | INFO | news_generator.web | Starting News Generator Admin
+2026-09-18 17:36:15,929 | INFO | news_generator.web | Elasticsearch indices are ready
+2026-09-18 17:36:50,032 | INFO | news_generator.web | Stopping News Generator Admin
+2026-09-18 17:36:50,040 | INFO | news_generator.web | Yandex clients closed
+2026-09-18 17:36:50,040 | INFO | news_generator.web | Elasticsearch connection closed
+2026-09-18 17:36:52,759 | INFO | news_generator.web | Starting News Generator Admin
+2026-09-18 17:36:52,768 | INFO | news_generator.web | Elasticsearch indices are ready
+2026-09-18 17:50:03,181 | INFO | news_generator.web | Stopping News Generator Admin
+2026-09-18 17:50:03,182 | INFO | news_generator.web | Yandex clients closed
+2026-09-18 17:50:03,182 | INFO | news_generator.web | Elasticsearch connection closed
+2026-09-18 17:50:05,298 | INFO | news_generator.web | Starting News Generator Admin
+2026-09-18 17:50:05,321 | INFO | news_generator.web | Elasticsearch indices are ready
+2026-09-18 17:53:52,785 | INFO | news_generator.web | Stopping News Generator Admin
+2026-09-18 17:53:52,786 | INFO | news_generator.web | Yandex clients closed
+2026-09-18 17:53:52,786 | INFO | news_generator.web | Elasticsearch connection closed
+2026-09-18 17:53:54,897 | INFO | news_generator.web | Starting News Generator Admin
+2026-09-18 17:53:54,929 | INFO | news_generator.web | Elasticsearch indices are ready
+2026-09-18 17:55:19,379 | INFO | news_generator.web | Stopping News Generator Admin
+2026-09-18 17:55:19,379 | INFO | news_generator.web | Yandex clients closed
+2026-09-18 17:55:19,379 | INFO | news_generator.web | Elasticsearch connection closed
