@@ -51,16 +51,11 @@ class Publication(BaseModel):
     # Внутренний уникальный идентификатор публикации.
     id: NonEmptyStr
 
-    # Атомарные тезисы, использованные при создании материала.
-    thesis_ids: list[NonEmptyStr] = Field(
-        ...,
-        min_length=1,
-    )
-
     # Конкретные смысловые единицы,
     # которые были переданы модели как фактический контекст.
     semantic_unit_ids: list[NonEmptyStr] = Field(
-        default_factory=list,
+        ...,
+        min_length=1,
     )
 
     # Заголовок материала, если он используется на площадке.
@@ -108,12 +103,6 @@ class Publication(BaseModel):
 
     @model_validator(mode="after")
     def validate_structure(self) -> "Publication":
-        # Одни и те же тезисы не должны повторяться.
-        if len(self.thesis_ids) != len(set(self.thesis_ids)):
-            raise ValueError(
-                "thesis_ids must contain unique values"
-            )
-
         # Аналогично для SemanticUnit.
         if len(self.semantic_unit_ids) != len(set(self.semantic_unit_ids)):
             raise ValueError(
