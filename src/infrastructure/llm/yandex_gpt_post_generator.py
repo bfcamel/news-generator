@@ -42,6 +42,8 @@ POST_GENERATION_SCHEMA = {
         },
         "used_semantic_unit_ids": {
             "type": "array",
+            "minItems": 1,
+            "uniqueItems": True,
             "items": {
                 "type": "string",
             },
