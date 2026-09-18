@@ -27,10 +27,23 @@ from src.infrastructure.embeddings import (
     EmbeddingSettings,
     YandexEmbeddingClient,
 )
+from src.infrastructure.llm.yandex_gpt_post_generator import (
+    YandexGPTPostGenerator,
+    YandexGPTPostSettings,
+)
 from src.repositories.embedding_repository import EmbeddingRepository
 from src.repositories.semantic_unit_repository import SemanticUnitRepository
 from src.repositories.source_document_repository import SourceDocumentRepository
+from src.repositories.publication_trial_store import (
+    FilePublicationTrialStore,
+)
 from src.services.semantic_unit_service import SemanticUnitService
+from src.services.topic_discovery_service import (
+    TopicDiscoveryService,
+)
+from src.web.publication_trials_routes import (
+    create_publication_trials_router,
+)
 
 BASE_DIR = Path(__file__).resolve().parent
 
@@ -248,6 +261,28 @@ semantic_unit_service = (
     )
 )
 
+publication_trial_store = (
+    FilePublicationTrialStore()
+)
+
+topic_discovery_service = (
+    TopicDiscoveryService(
+        es=es,
+        source_repository=source_repository,
+        trial_store=publication_trial_store,
+    )
+)
+
+post_generator_settings = (
+    YandexGPTPostSettings.from_env()
+)
+
+post_generator = (
+    YandexGPTPostGenerator(
+        post_generator_settings
+    )
+)
+
 LANGUAGES = {
     "ru": "Русский",
     "en": "English",
@@ -301,10 +336,11 @@ async def lifespan(
         )
 
         try:
+            await post_generator.close()
             await embedding_client.close()
 
             logger.info(
-                "Yandex embedding client closed"
+                "Yandex clients closed"
             )
 
         finally:
@@ -318,6 +354,21 @@ async def lifespan(
 app = FastAPI(
     title="News Generator Admin",
     lifespan=lifespan,
+)
+
+app.include_router(
+    create_publication_trials_router(
+        templates=templates,
+        discovery_service=(
+            topic_discovery_service
+        ),
+        post_generator=(
+            post_generator
+        ),
+        trial_store=(
+            publication_trial_store
+        ),
+    )
 )
 
 
