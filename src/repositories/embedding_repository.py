@@ -8,7 +8,6 @@ from elasticsearch import AsyncElasticsearch
 
 
 SEMANTIC_UNITS_INDEX = "semantic_units"
-ATOMIC_THESES_INDEX = "atomic_theses"
 
 
 @dataclass(frozen=True, slots=True)
@@ -17,16 +16,13 @@ class EmbeddingTarget:
     domain_id: str
     text: str
     metadata: dict[str, Any]
-
     doc_embedding_exists: bool
-    query_embedding_exists: bool = False
 
 
 @dataclass(frozen=True, slots=True)
 class IndexEmbeddingStats:
     total: int
     missing_doc: int
-    missing_query: int = 0
 
     @property
     def complete_doc(self) -> int:
@@ -35,17 +31,10 @@ class IndexEmbeddingStats:
             - self.missing_doc
         )
 
-    @property
-    def complete_query(self) -> int:
-        return (
-            self.total
-            - self.missing_query
-        )
-
 
 class EmbeddingRepository:
     """
-    Elasticsearch access used only by embedding generation.
+    Elasticsearch access used by SemanticUnit embedding generation.
 
     A scroll iterator is used instead of a fixed size=1000 query,
     so generation also works when the knowledge base grows.
@@ -88,62 +77,6 @@ class EmbeddingRepository:
             ),
         )
 
-    async def atomic_theses_stats(
-        self,
-    ) -> IndexEmbeddingStats | None:
-        exists = await self.es.indices.exists(
-            index=ATOMIC_THESES_INDEX
-        )
-
-        if not exists:
-            return None
-
-        total = await self.es.count(
-            index=ATOMIC_THESES_INDEX
-        )
-
-        missing_doc = await self.es.count(
-            index=ATOMIC_THESES_INDEX,
-            query={
-                "bool": {
-                    "must_not": {
-                        "exists": {
-                            "field": (
-                                "doc_embedding"
-                            )
-                        }
-                    }
-                }
-            },
-        )
-
-        missing_query = await self.es.count(
-            index=ATOMIC_THESES_INDEX,
-            query={
-                "bool": {
-                    "must_not": {
-                        "exists": {
-                            "field": (
-                                "query_embedding"
-                            )
-                        }
-                    }
-                }
-            },
-        )
-
-        return IndexEmbeddingStats(
-            total=int(
-                total["count"]
-            ),
-            missing_doc=int(
-                missing_doc["count"]
-            ),
-            missing_query=int(
-                missing_query["count"]
-            ),
-        )
-
     async def iter_semantic_units(
         self,
         *,
@@ -174,9 +107,7 @@ class EmbeddingRepository:
             batch_size=batch_size,
             limit=limit,
         ):
-            source = hit[
-                "_source"
-            ]
+            source = hit["_source"]
 
             text = str(
                 source.get(
@@ -206,104 +137,6 @@ class EmbeddingRepository:
                 doc_embedding_exists=(
                     source.get(
                         "doc_embedding"
-                    )
-                    is not None
-                ),
-            )
-
-    async def iter_atomic_theses(
-        self,
-        *,
-        force: bool = False,
-        limit: int | None = None,
-        batch_size: int = 250,
-    ) -> AsyncIterator[EmbeddingTarget]:
-        exists = await self.es.indices.exists(
-            index=ATOMIC_THESES_INDEX
-        )
-
-        if not exists:
-            return
-
-        if force:
-            query: dict[str, Any] = {
-                "match_all": {}
-            }
-        else:
-            query = {
-                "bool": {
-                    "should": [
-                        {
-                            "bool": {
-                                "must_not": {
-                                    "exists": {
-                                        "field": (
-                                            "query_embedding"
-                                        )
-                                    }
-                                }
-                            }
-                        },
-                        {
-                            "bool": {
-                                "must_not": {
-                                    "exists": {
-                                        "field": (
-                                            "doc_embedding"
-                                        )
-                                    }
-                                }
-                            }
-                        },
-                    ],
-                    "minimum_should_match": 1,
-                }
-            }
-
-        async for hit in self._scan(
-            index=ATOMIC_THESES_INDEX,
-            query=query,
-            batch_size=batch_size,
-            limit=limit,
-        ):
-            source = hit[
-                "_source"
-            ]
-
-            text = str(
-                source.get(
-                    "text",
-                    ""
-                )
-            ).strip()
-
-            if not text:
-                continue
-
-            yield EmbeddingTarget(
-                es_id=hit["_id"],
-                domain_id=str(
-                    source.get(
-                        "id",
-                        hit["_id"],
-                    )
-                ),
-                text=text,
-                metadata=dict(
-                    source.get(
-                        "metadata"
-                    )
-                    or {}
-                ),
-                doc_embedding_exists=(
-                    source.get(
-                        "doc_embedding"
-                    )
-                    is not None
-                ),
-                query_embedding_exists=(
-                    source.get(
-                        "query_embedding"
                     )
                     is not None
                 ),
@@ -327,13 +160,8 @@ class EmbeddingRepository:
             or {}
         )
 
-        embeddings_meta[
-            "doc"
-        ] = embedding_metadata
-
-        metadata[
-            "embeddings"
-        ] = embeddings_meta
+        embeddings_meta["doc"] = embedding_metadata
+        metadata["embeddings"] = embeddings_meta
 
         await self.es.update(
             index=SEMANTIC_UNITS_INDEX,
@@ -354,85 +182,6 @@ class EmbeddingRepository:
             },
         )
 
-    async def save_atomic_thesis_embeddings(
-        self,
-        *,
-        target: EmbeddingTarget,
-        query_vector: list[float] | None,
-        query_metadata: dict[str, Any] | None,
-        doc_vector: list[float] | None,
-        doc_metadata: dict[str, Any] | None,
-    ) -> None:
-        metadata = dict(
-            target.metadata
-        )
-
-        embeddings_meta = dict(
-            metadata.get(
-                "embeddings"
-            )
-            or {}
-        )
-
-        doc: dict[str, Any] = {
-            "metadata": metadata,
-            "updated_at": (
-                datetime.now(
-                    timezone.utc
-                ).isoformat()
-            ),
-        }
-
-        if (
-            query_vector is not None
-            and query_metadata is not None
-        ):
-            doc[
-                "query_embedding"
-            ] = query_vector
-
-            embeddings_meta[
-                "query"
-            ] = query_metadata
-
-        if (
-            doc_vector is not None
-            and doc_metadata is not None
-        ):
-            doc[
-                "doc_embedding"
-            ] = doc_vector
-
-            embeddings_meta[
-                "doc"
-            ] = doc_metadata
-
-        metadata[
-            "embeddings"
-        ] = embeddings_meta
-
-        doc[
-            "embedding_model"
-        ] = (
-            "yandex-text-embeddings-v2:"
-            + str(
-                (
-                    query_metadata
-                    or doc_metadata
-                    or {}
-                ).get(
-                    "dimension",
-                    512,
-                )
-            )
-        )
-
-        await self.es.update(
-            index=ATOMIC_THESES_INDEX,
-            id=target.es_id,
-            doc=doc,
-        )
-
     async def _scan(
         self,
         *,
@@ -441,20 +190,11 @@ class EmbeddingRepository:
         batch_size: int,
         limit: int | None,
     ) -> AsyncIterator[dict[str, Any]]:
-        """
-        Iterate over an index with the Scroll API.
-
-        This is deliberately simple and does not require
-        elasticsearch.helpers.
-        """
-
         response = await self.es.search(
             index=index,
             query=query,
             size=batch_size,
-            sort=[
-                "_doc"
-            ],
+            sort=["_doc"],
             scroll="2m",
         )
 
@@ -477,7 +217,6 @@ class EmbeddingRepository:
 
                 for hit in hits:
                     yield hit
-
                     emitted += 1
 
                     if (
@@ -506,6 +245,4 @@ class EmbeddingRepository:
                         scroll_id=scroll_id
                     )
                 except Exception:
-                    # Cleanup failure must not hide the real
-                    # generation result/error.
                     pass
