@@ -1,0 +1,320 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{ trial.title }}
+{% endblock %}
+
+{% block head %}
+<style>
+    .publication-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+        gap: 24px;
+        align-items: start;
+    }
+
+    .publication-text {
+        white-space: pre-wrap;
+        font-size: 17px;
+        line-height: 1.65;
+    }
+
+    .evidence-item {
+        border: 1px solid var(--border-soft);
+        border-radius: 8px;
+        padding: 16px;
+        margin-bottom: 14px;
+        background: #ffffff;
+    }
+
+    .evidence-item.used {
+        border-left: 4px solid var(--primary);
+    }
+
+    .evidence-item.not-used {
+        opacity: 0.72;
+    }
+
+    .evidence-text {
+        white-space: pre-wrap;
+        margin-top: 10px;
+    }
+
+    .badge {
+        display: inline-block;
+        padding: 3px 8px;
+        border-radius: 999px;
+        background: #eef1f2;
+        font-size: 13px;
+        margin-right: 6px;
+        margin-bottom: 4px;
+    }
+
+    .decision-actions {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 16px;
+    }
+
+    .reject-button {
+        background: #7d2d2d;
+    }
+
+    .reject-button:hover {
+        background: #672424;
+    }
+
+    @media (max-width: 950px) {
+        .publication-layout {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+{% endblock %}
+
+
+{% block content %}
+
+<p>
+    <a href="/publications">← Все тестовые публикации</a>
+</p>
+
+<h1>{{ trial.title }}</h1>
+
+<div class="publication-layout">
+
+    <div>
+        <section class="card">
+            <div class="muted">
+                Автоматически определённая тема
+            </div>
+
+            <h2 style="margin-top: 6px;">
+                {{ trial.topic }}
+            </h2>
+
+            <div class="publication-text">
+                {{ trial.post_text }}
+            </div>
+        </section>
+
+
+        <section class="card">
+            <h2>Решение</h2>
+
+            <p class="muted">
+                Тестовый режим: эти кнопки НЕ отправляют пост
+                во ВКонтакте. Они только сохраняют твоё решение
+                в локальном JSON, чтобы оценивать качество генерации.
+            </p>
+
+            {% if trial.decision.value == "approved" %}
+                <div class="success">
+                    Решение: этот вариант можно публиковать.
+                </div>
+            {% elif trial.decision.value == "rejected" %}
+                <div class="error">
+                    Решение: этот вариант публиковать не нужно.
+                </div>
+            {% endif %}
+
+            <form
+                method="post"
+                action="/publications/{{ trial.id }}/decision"
+            >
+                <label for="decision_note">
+                    <strong>Комментарий к решению</strong>
+                </label>
+
+                <textarea
+                    id="decision_note"
+                    name="decision_note"
+                    rows="3"
+                    placeholder="Необязательно"
+                >{{ trial.decision_note or "" }}</textarea>
+
+                <div class="decision-actions">
+                    <button
+                        type="submit"
+                        name="decision"
+                        value="approved"
+                    >
+                        Да, публиковать
+                    </button>
+
+                    <button
+                        class="reject-button"
+                        type="submit"
+                        name="decision"
+                        value="rejected"
+                    >
+                        Нет, отклонить
+                    </button>
+                </div>
+            </form>
+        </section>
+
+
+        <section class="card">
+            <h2>Техническая информация</h2>
+
+            <p>
+                <strong>LLM-вызовов:</strong>
+                {{ trial.metadata.get("llm_calls", 1) }}
+            </p>
+
+            <p>
+                <strong>Модель:</strong>
+                {{ trial.generation_model }}
+            </p>
+
+            <p>
+                <strong>Prompt:</strong>
+                <code>{{ trial.prompt_file }}</code>
+            </p>
+
+            <p>
+                <strong>Prompt SHA-256:</strong>
+                <code>{{ trial.prompt_sha256 }}</code>
+            </p>
+
+            <p>
+                <strong>Средняя близость блока:</strong>
+                {{ "%.4f" | format(trial.discovery.average_similarity) }}
+            </p>
+
+            <p>
+                <strong>Источников:</strong>
+                {{ trial.discovery.source_count }}
+            </p>
+
+            <p>
+                <strong>Semantic Units:</strong>
+                {{ trial.discovery.evidence_count }}
+            </p>
+
+            <p>
+                <strong>Selection score:</strong>
+                {{ "%.4f" | format(trial.discovery.selection_score) }}
+            </p>
+        </section>
+    </div>
+
+
+    <div>
+        <section class="card">
+            <h2>Тематические Semantic Units</h2>
+
+            <p class="muted">
+                Синим краем отмечены блоки, которые YandexGPT
+                сообщил как реально использованные в тексте.
+                Остальные были доступны модели, но в пост не вошли.
+            </p>
+
+            {% for row in evidence_rows %}
+
+                <div
+                    class="
+                        evidence-item
+                        {% if row.used %}
+                            used
+                        {% else %}
+                            not-used
+                        {% endif %}
+                    "
+                >
+                    <div>
+                        {% if row.used %}
+                            <span class="badge">
+                                Использован
+                            </span>
+                        {% else %}
+                            <span class="badge">
+                                Не использован
+                            </span>
+                        {% endif %}
+
+                        <span class="badge">
+                            similarity:
+                            {{ "%.4f" | format(row.item.similarity) }}
+                        </span>
+                    </div>
+
+                    <div class="evidence-text">
+                        {{ row.item.text }}
+                    </div>
+
+                    <div
+                        class="muted"
+                        style="margin-top: 12px;"
+                    >
+                        <strong>
+                            {{ row.item.source_title }}
+                        </strong>
+
+                        {% if row.item.source_year %}
+                            ({{ row.item.source_year }})
+                        {% endif %}
+
+                        {% if row.item.source_authors %}
+                            <br>
+                            {{ row.item.source_authors | join(", ") }}
+                        {% endif %}
+
+                        {% if row.item.source_doi %}
+                            <br>
+                            DOI: {{ row.item.source_doi }}
+                        {% endif %}
+
+                        {% if row.item.section_title %}
+                            <br>
+                            Раздел: {{ row.item.section_title }}
+                        {% endif %}
+
+                        {% if row.item.page_start %}
+                            <br>
+                            Страница:
+                            {{ row.item.page_start }}
+                            {% if
+                                row.item.page_end
+                                and
+                                row.item.page_end
+                                !=
+                                row.item.page_start
+                            %}
+                                –{{ row.item.page_end }}
+                            {% endif %}
+                        {% endif %}
+
+                        {% if row.item.taxa %}
+                            <br>
+                            Taxa:
+                            {{ row.item.taxa | join(", ") }}
+                        {% endif %}
+
+                        <br>
+                        ID:
+                        <code>
+                            {{ row.item.semantic_unit_id }}
+                        </code>
+                    </div>
+                </div>
+
+            {% endfor %}
+        </section>
+    </div>
+
+</div>
+
+
+<form
+    method="post"
+    action="/publications/generate"
+>
+    <button type="submit">
+        Сгенерировать другой вариант
+    </button>
+</form>
+
+{% endblock %}
